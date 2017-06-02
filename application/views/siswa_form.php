@@ -56,7 +56,7 @@
         <tr><td>Provinsi <?php echo form_error('provinsi') ?></td>
             <td><input type="text" class="form-control" name="provinsi" id="provinsi" placeholder="Provinsi" value="<?php echo $provinsi; ?>" required/>
         </td>
-        <tr><td>Kabupaten <?php echo form_error('kabupaten') ?></td>
+        <tr><td>Kota/Kabupaten <?php echo form_error('kabupaten') ?></td>
             <td><input type="text" class="form-control" name="kabupaten" id="kabupaten" placeholder="Kabupaten" value="<?php echo $kabupaten; ?>" required/>
         </td>
         <tr><td>Kecamatan <?php echo form_error('kecamatan') ?></td>

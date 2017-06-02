@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2017 at 05:41 PM
+-- Generation Time: Jun 02, 2017 at 10:29 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `fakultas` (
 `id_fakultas` int(11) NOT NULL,
-  `fakultas` varchar(25) NOT NULL,
+  `fakultas` varchar(50) NOT NULL,
   `id_universitas` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `fakultas`
@@ -44,7 +44,11 @@ INSERT INTO `fakultas` (`id_fakultas`, `fakultas`, `id_universitas`) VALUES
 (15, 'HUKUM', 0),
 (16, 'Ilmu Budaya', 0),
 (17, 'Kehutanan', 0),
-(18, 'Sekolah Vokasi', 0);
+(18, 'Sekolah Vokasi', 0),
+(19, 'Fakultas Ilmu Pendidikan', 0),
+(20, 'Fakultas Bahasa dan Seni', 0),
+(21, 'Fakultas Ilmu Sosial', 0),
+(22, 'Fakultas Ilmu Keolahragaa', 0);
 
 -- --------------------------------------------------------
 
@@ -54,14 +58,14 @@ INSERT INTO `fakultas` (`id_fakultas`, `fakultas`, `id_universitas`) VALUES
 
 CREATE TABLE IF NOT EXISTS `guru` (
 `id_guru` int(3) NOT NULL,
-  `guru` varchar(25) NOT NULL,
+  `guru` varchar(30) NOT NULL,
   `nama_panggilan` varchar(10) NOT NULL,
   `jenis_kelamin` enum('Laki-laki','Perempuan','','') NOT NULL,
   `tempat_lahir` varchar(20) NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `tempat_asal` varchar(250) NOT NULL,
   `id_kelas` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `guru`
@@ -72,7 +76,8 @@ INSERT INTO `guru` (`id_guru`, `guru`, `nama_panggilan`, `jenis_kelamin`, `tempa
 (30, 'Ahmad Busthomi', 'Ahmad', 'Perempuan', 'Surabaya', '1988-08-10', 'Jl. Ngagel Raya No. 50, Gubeng, Surabaya', 4),
 (31, 'Nining Purwaningsih', 'Nining', 'Perempuan', 'Pati', '1989-10-11', 'Jl. Basuki Rahmat 50, Kota Pati, Jawa Tengah', 7),
 (32, 'Retno Putri Andayani', 'Putri', 'Perempuan', 'Yogyakarta', '1984-10-16', 'Jl. Muja-Muju No.120, Sidobali Yogyakarta', 6),
-(33, 'Ahmad Fachruda Aziz', 'Aziz', 'Perempuan', 'Yogyakarta', '1987-07-17', 'Kepuh GK 3, No. 700, Klitren Gondokusuman', 4);
+(33, 'Ahmad Fachruda Aziz', 'Aziz', 'Perempuan', 'Yogyakarta', '1987-07-17', 'Kepuh GK 3, No. 700, Klitren Gondokusuman', 4),
+(34, 'Rahmad Fauzi', 'Rahmad', 'Laki-laki', 'Bandung', '1991-04-05', 'Jl. Pemuda no. 12, Kota Bandung', 7);
 
 -- --------------------------------------------------------
 
@@ -82,19 +87,19 @@ INSERT INTO `guru` (`id_guru`, `guru`, `nama_panggilan`, `jenis_kelamin`, `tempa
 
 CREATE TABLE IF NOT EXISTS `jurusan` (
 `id_jurusan` int(11) NOT NULL,
-  `jurusan` varchar(20) NOT NULL,
+  `jurusan` varchar(100) NOT NULL,
   `id_fakultas` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jurusan`
 --
 
 INSERT INTO `jurusan` (`id_jurusan`, `jurusan`, `id_fakultas`) VALUES
-(1, 'teknik informatika', 0),
-(2, 'teknik mesin', 0),
-(3, 'teknik otomotif', 0),
-(4, 'Teknik kimia', 0),
+(1, 'Teknik Informatika', 0),
+(2, 'Teknik Mesin', 0),
+(3, 'Teknik Geologi', 0),
+(4, 'Teknik Kimia', 0),
 (5, 'Ilmu Komputer', 0),
 (6, 'Pendidikan Dokter', 0),
 (7, 'Kedokteran Gigi', 0),
@@ -105,7 +110,16 @@ INSERT INTO `jurusan` (`id_jurusan`, `jurusan`, `id_fakultas`) VALUES
 (13, 'Bahasa Inggris', 0),
 (14, 'Bahasa Korea', 0),
 (15, 'Bahasa Indonesia', 0),
-(16, 'Fisika', 0);
+(16, 'Fisika', 0),
+(17, 'Manajemen Pendidikan', 0),
+(18, 'Pendidikan Guru Sekolah Dasar', 0),
+(19, 'Pendidikan Anak Usia Dini', 0),
+(20, 'Psikologi', 0),
+(21, 'Pendidikan Luar Biasa', 0),
+(22, 'Pendidikan Bahasa dan Seni', 0),
+(23, 'Sastra Inggris', 0),
+(24, 'Pendidikan Bahasa Jawa', 0),
+(25, 'Teknik Nuklir', 0);
 
 -- --------------------------------------------------------
 
@@ -117,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `kalender` (
 `id_kegiatan` int(11) NOT NULL,
   `judul_kegiatan` varchar(255) NOT NULL,
   `tanggal_kegiatan` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -148,7 +162,7 @@ INSERT INTO `kelas` (`id_kelas`, `kelas`) VALUES
 
 CREATE TABLE IF NOT EXISTS `materi` (
 `id_materi` int(5) NOT NULL,
-  `materi` varchar(25) NOT NULL
+  `materi` varchar(50) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
@@ -156,9 +170,9 @@ CREATE TABLE IF NOT EXISTS `materi` (
 --
 
 INSERT INTO `materi` (`id_materi`, `materi`) VALUES
-(1, 'Membaca'),
-(2, 'Menulis'),
-(3, 'Menerangkan');
+(1, 'Syafahi (Ujian Lisan)'),
+(2, 'Tahriri (Ujian Tulis)'),
+(3, 'Praktik Ibadah (Qauliyah dan Amaliyah)');
 
 -- --------------------------------------------------------
 
@@ -181,13 +195,13 @@ CREATE TABLE IF NOT EXISTS `menu` (
 
 INSERT INTO `menu` (`id`, `name`, `link`, `icon`, `is_active`, `is_parent`) VALUES
 (29, 'Jurusan Kuliah', 'jurusan', 'fa fa-graduation-cap', 1, 30),
-(30, 'Edit Kategori Siswa', 'nolink', 'fa fa-edit', 1, 0),
-(32, 'Daftar Siswa', 'siswa', 'fa fa-mortar-board', 1, 0),
+(30, 'Edit Kategori Siswa', 'nolink', 'fa fa-gears', 1, 0),
+(32, 'Daftar Siswa', 'siswa', 'fa fa-users', 1, 0),
 (35, 'Daftar Guru', 'guru', 'fa fa-user', 1, 0),
 (37, 'KELOLA MANAJEMEN', 'menu', 'fa fa-gears', 1, 0),
-(39, 'UNIVERSITAS', 'universitas', 'fa fa-gears', 1, 30),
-(42, 'Fakultas', 'fakultas', 'fa fa-gears', 1, 30),
-(44, 'Kelas', 'kelas', 'fa fa-user', 1, 30);
+(39, 'UNIVERSITAS', 'universitas', 'fa fa-graduation-cap', 1, 30),
+(42, 'Fakultas', 'fakultas', 'fa fa-graduation-cap', 1, 30),
+(44, 'Kelas', 'kelas', 'fa fa-graduation-cap', 1, 30);
 
 -- --------------------------------------------------------
 
@@ -244,7 +258,7 @@ CREATE TABLE IF NOT EXISTS `siswa` (
   `tahun_masuk_universitas` year(4) NOT NULL,
   `tahun_masuk_ppm` year(4) NOT NULL,
   `id_kelas` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `siswa`
@@ -252,7 +266,8 @@ CREATE TABLE IF NOT EXISTS `siswa` (
 
 INSERT INTO `siswa` (`id_siswa`, `siswa`, `nama_panggilan`, `tempat_lahir`, `tanggal_lahir`, `umur`, `jenis_kelamnin`, `golongan_darah`, `no_hp`, `alamat`, `provinsi`, `kabupaten`, `kecamatan`, `nama_ayah`, `pekerjaan_ayah`, `nama_ibu`, `pekerjaan_ibu`, `jumlah_saudara`, `urutan`, `id_universitas`, `id_fakultas`, `id_jurusan`, `tahun_masuk_universitas`, `tahun_masuk_ppm`, `id_kelas`) VALUES
 (9, 'Nur Arifin', 'Arifin', 'Jakarta', '1997-02-06', 19, 'Laki - laki', 'B', 2147483647, 'Yukum Jaya, Terbanggi Besar, Lampung Tengah', 'Lampung', 'Lampung Tengah', 'Terbanggi Besar', 'Karsimin', 'Karyawan Swasta', 'Wiwit Winarsih', 'PNS', 4, 3, 9, 9, 1, 2015, 2015, 4),
-(10, 'tes', 'tes', 'kediri', '2017-05-10', 20, 'Laki - laki', 'AB', 8786868, 'tes', 'tes', 'tes', 'tes', 'tes', 'tes', 'tes', 'tes', 3, 3, 5, 9, 14, 2014, 2014, 6);
+(11, 'Dewi Afifah', 'Dewi', 'Jakarta', '1995-07-12', 21, 'Perempuan', 'O', 2147483647, 'Jalan Akasia No. 56, Kebayoran Lama, Jakarta Selatan', 'Jakarta', 'Jakarta', 'Kebayoran Lama', 'Musthofa', 'PNS', 'Endah Dwi', 'Ibu Rumah Tangga', 3, 2, 5, 15, 8, 2014, 2014, 5),
+(12, 'Aulia Tria Andini', 'Dini', 'Yogyakarta', '1997-06-17', 20, 'Perempuan', 'AB', 2147483647, 'Jl. Palagan Tentara No. 33,Yogyakarta', 'Yogyakarta', 'Yogyakarta', 'Gondokusuman', 'Suprapto', 'PNS', 'Dyah Andayani', 'PNS', 2, 1, 5, 9, 7, 2014, 2014, 4);
 
 -- --------------------------------------------------------
 
@@ -262,7 +277,7 @@ INSERT INTO `siswa` (`id_siswa`, `siswa`, `nama_panggilan`, `tempat_lahir`, `tan
 
 CREATE TABLE IF NOT EXISTS `uas` (
 `id_uas` int(5) NOT NULL,
-  `uas` varchar(10) NOT NULL
+  `uas` varchar(50) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
@@ -270,14 +285,14 @@ CREATE TABLE IF NOT EXISTS `uas` (
 --
 
 INSERT INTO `uas` (`id_uas`, `uas`) VALUES
-(1, 'UAS 1'),
-(2, 'UAS 2'),
-(3, 'UAS 3'),
-(4, 'UAS 4'),
-(5, 'UAS 5'),
-(6, 'UAS 6'),
-(7, 'UAS 7'),
-(8, 'UAS 8');
+(1, 'MUNAQOSYAH 1'),
+(2, 'MUNAQOSYAH 2'),
+(3, 'MUNAQOSYAH 3'),
+(4, 'MUNAQOSYAH 4'),
+(5, 'MUNAQOSYAH 5'),
+(6, 'MUNAQOSYAH 6'),
+(7, 'MUNAQOSYAH 7'),
+(8, 'MUNAQOSYAH 8');
 
 -- --------------------------------------------------------
 
@@ -293,14 +308,17 @@ CREATE TABLE IF NOT EXISTS `ujian` (
   `id_materi` int(5) NOT NULL,
   `id_uas` int(5) NOT NULL,
   `nilai` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ujian`
 --
 
 INSERT INTO `ujian` (`id_ujian`, `id_siswa`, `id_guru`, `id_kelas`, `id_materi`, `id_uas`, `nilai`) VALUES
-(6, 10, 29, 4, 1, 1, 90);
+(8, 9, 33, 5, 3, 1, 90),
+(9, 11, 30, 5, 2, 1, 90),
+(10, 12, 34, 4, 2, 1, 80),
+(11, 9, 29, 4, 1, 2, 88);
 
 -- --------------------------------------------------------
 
@@ -310,8 +328,8 @@ INSERT INTO `ujian` (`id_ujian`, `id_siswa`, `id_guru`, `id_kelas`, `id_materi`,
 
 CREATE TABLE IF NOT EXISTS `universitas` (
 `id_universitas` int(3) NOT NULL,
-  `universitas` varchar(30) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+  `universitas` varchar(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `universitas`
@@ -324,7 +342,13 @@ INSERT INTO `universitas` (`id_universitas`, `universitas`) VALUES
 (8, 'Universitas Ahmad Dahlan'),
 (9, 'Universitas Pembangunan Negeri'),
 (10, 'STMIK AMIKOM'),
-(11, 'STTNAS');
+(11, 'STTNAS'),
+(12, 'UIN Sunan Kalijaga'),
+(13, 'Universitas Muhammadiyah Yogyakarta'),
+(14, 'Institut Seni Indonesia'),
+(15, 'Universitas Teknologi Yogyakarta'),
+(16, 'AA YKPN'),
+(17, 'AKPRIND');
 
 -- --------------------------------------------------------
 
@@ -439,22 +463,22 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `fakultas`
 --
 ALTER TABLE `fakultas`
-MODIFY `id_fakultas` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+MODIFY `id_fakultas` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-MODIFY `id_guru` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
+MODIFY `id_guru` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
-MODIFY `id_jurusan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+MODIFY `id_jurusan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `kalender`
 --
 ALTER TABLE `kalender`
-MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `kelas`
 --
@@ -479,7 +503,7 @@ MODIFY `idreport` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `uas`
 --
@@ -489,12 +513,12 @@ MODIFY `id_uas` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT for table `ujian`
 --
 ALTER TABLE `ujian`
-MODIFY `id_ujian` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id_ujian` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `universitas`
 --
 ALTER TABLE `universitas`
-MODIFY `id_universitas` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+MODIFY `id_universitas` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `user`
 --

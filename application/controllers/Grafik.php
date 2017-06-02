@@ -29,15 +29,15 @@ class Grafik extends CI_Controller {
     $graph_data['axis']['categories'] = $this->gm->listKelas();
     $gender = 'laki_laki';
     $membaca = [
-      'name'=>'Membaca',
+      'name'=>'Syafahi (Ujian Lisan)',
       'data'=>$this->gm->nilai($gender,$uas,1)
     ];
     $menulis = [
-      'name'=>'Menulis',
+      'name'=>'Tahriri (Ujian Tulis)',
       'data'=>$this->gm->nilai($gender,$uas,2)
     ];
     $menerangkan = [
-      'name'=>'Menerangkan',
+      'name'=>'Praktik Ibadah (Qauliyah dan Amaliyah)',
       'data'=>$this->gm->nilai($gender,$uas,3)
     ];
     $this->highcharts->set_type('column');
@@ -50,15 +50,15 @@ class Grafik extends CI_Controller {
     $graph_data['axis']['categories'] = $this->gm->listKelas();
     $gender = 'perempuan';
     $membaca = [
-      'name'=>'Membaca',
+      'name'=>'Syafahi (Ujian Lisan)',
       'data'=>$this->gm->nilai($gender,$uas,1)
     ];
     $menulis = [
-      'name'=>'Menulis',
+      'name'=>'Tahriri (Ujian Tulis)',
       'data'=>$this->gm->nilai($gender,$uas,2)
     ];
     $menerangkan = [
-      'name'=>'Menerangkan',
+      'name'=>'Praktik Ibadah (Qauliyah dan Amaliyah)',
       'data'=>$this->gm->nilai($gender,$uas,3)
     ];
     $arrayKelas = ['Kelas 1','Kelas 2'];
@@ -76,15 +76,15 @@ class Grafik extends CI_Controller {
   public function kelas($uas){
     $graph_data['axis']['categories'] = $this->gm->listKelas();
     $membaca = [
-      'name'=>'Membaca',
+      'name'=>'Syafahi (Ujian Lisan)',
       'data'=>$this->gm->nilaiKelas($uas,1)
     ];
     $menulis = [
-      'name'=>'Menulis',
+      'name'=>'Tahriri (Ujian Tulis)',
       'data'=>$this->gm->nilaiKelas($uas,2)
     ];
     $menerangkan = [
-      'name'=>'Menerangkan',
+      'name'=>'Praktik Ibadah (Qauliyah dan Amaliyah)',
       'data'=>$this->gm->nilaiKelas($uas,3)
     ];
     $this->highcharts->set_type('column');

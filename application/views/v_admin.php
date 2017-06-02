@@ -138,7 +138,7 @@
 
         <li>
             <a href="<?= base_url('grafik') ?>">
-                <i class="fa fa-pie-chart"></i> <span>GRAFIK AKADEMIK</span>
+                <i class="fa fa-area-chart"></i> <span>GRAFIK AKADEMIK</span>
             </a>
         </li>
         <li class="header"><center>KALENDER AKADEMIK</center></li>
