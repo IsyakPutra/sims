@@ -27,7 +27,7 @@ class Grafik extends CI_Controller {
 
   public function uas($uas){
     $graph_data['axis']['categories'] = $this->gm->listKelas();
-    $gender = 'laki_laki';
+    $gender = 'Laki - laki';
     $membaca = [
       'name'=>'Syafahi (Ujian Lisan)',
       'data'=>$this->gm->nilai($gender,$uas,1)
@@ -61,7 +61,6 @@ class Grafik extends CI_Controller {
       'name'=>'Praktik Ibadah (Qauliyah dan Amaliyah)',
       'data'=>$this->gm->nilai($gender,$uas,3)
     ];
-    $arrayKelas = ['Kelas 1','Kelas 2'];
     $this->highcharts->set_type('column');
     $this->highcharts->set_title('UAS '.$uas.' Putri');
     $this->highcharts->set_xAxis($graph_data['axis']);
