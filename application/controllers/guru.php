@@ -11,7 +11,7 @@ class Guru extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Guru_model');
-        $this->load->library('form_validation');
+        $this->load->library(['form_validation','ramalib']);
     }
 
     public function index()
@@ -79,10 +79,15 @@ class Guru extends CI_Controller
 		'tempat_asal' => $this->input->post('tempat_asal',TRUE),
 		'id_kelas' => $this->input->post('id_kelas',TRUE),
 	    );
+            $this->load->model('nomorinduk_model','nim');
+            if ($guru = $this->nim->cekGuru($data['guru'],$data['nama_panggilan'])) {
+                $this->session->set_flashdata('message', 'Guru telah ditambahkan dengan nomor induk '.$guru->value);
+                redirect(site_url('guru'));
+            }
 
-            $this->Guru_model->insert($data);
+            $id = $this->Guru_model->insert($data);
+            $this->ramalib->nomorIndukFor('guru',$id,$data['tanggal_lahir'],$data['nama_panggilan']);
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('guru'));
         }
     }
     

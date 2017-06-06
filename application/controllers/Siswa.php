@@ -11,7 +11,7 @@ class Siswa extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Siswa_model');
-        $this->load->library('form_validation');
+        $this->load->library(['form_validation','ramalib']);
     }
 
     public function index()
@@ -131,8 +131,14 @@ class Siswa extends CI_Controller
 		'tahun_masuk_ppm' => $this->input->post('tahun_masuk_ppm',TRUE),
 		'id_kelas' => $this->input->post('id_kelas',TRUE),
 	    );
+            $this->load->model('nomorinduk_model','nim');
+            if ($siswa = $this->nim->cekSiswa($data['siswa'],$data['nama_panggilan'])) {
+                $this->session->set_flashdata('message', 'Siswa telah ditambahkan dengan nomor induk '.$siswa->value);
+                redirect(site_url('siswa'));
+            }
 
-            $this->Siswa_model->insert($data);
+            $id = $this->Siswa_model->insert($data);
+            $this->ramalib->nomorIndukFor('siswa',$id,$data['tahun_masuk_ppm'],$data['id_kelas']);
             $this->session->set_flashdata('message', 'Create Record Success');
             redirect(site_url('siswa'));
         }
