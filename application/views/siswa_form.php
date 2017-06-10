@@ -5,9 +5,12 @@
               <div class='box'>
                 <div class='box-header'>
                 
-                  <h3 class='box-title'>FORMULIR SISWA</h3>
+                  <h3 class='box-title'>FORMULIR SANTRI</h3>
                       <div class='box box-primary'>
         <form action="<?php echo $action; ?>" method="post"><table class='table table-bordered'>
+        <tr><td class="col-sm-3 control-label">NIS <?php echo form_error('value') ?></td>
+            <td><input type="text" class="form-control" name="value" id="value" placeholder="Nomor Induk Santri" value="<?php echo $value; ?>" required disabled/>
+        </td>
         <tr><td class="col-sm-3 control-label">Nama Siswa <?php echo form_error('siswa') ?></td>
             <td><input type="text" class="form-control" name="siswa" id="siswa" placeholder="Nama Lengkap" value="<?php echo $siswa; ?>" required/>
         </td>
@@ -20,9 +23,9 @@
         <tr><td>Tanggal Lahir <?php echo form_error('tanggal_lahir') ?></td>
             <td><input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" placeholder="Tanggal Lahir" value="<?php echo $tanggal_lahir; ?>" required/>
         </td>
-        <tr><td>Umur <?php echo form_error('umur') ?></td>
+        <!-- <tr><td>Umur <?php echo form_error('umur') ?></td>
             <td><input type="text" class="form-control" name="umur" id="umur" placeholder="Umur" value="<?php echo $umur; ?>" required/>
-        </td>
+        </td> -->
         <tr><td>Jenis Kelamin <?php echo form_error('jenis_kelamnin') ?></td>
             <td>
             <div class="form-group">              

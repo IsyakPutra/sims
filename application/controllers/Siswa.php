@@ -31,11 +31,12 @@ class Siswa extends CI_Controller
         if ($row) {
             $data = array(
 		'id_siswa' => $row->id_siswa,
+		'value' => $row->value,
 		'siswa' => $row->siswa,
 		'nama_panggilan' => $row->nama_panggilan,
 		'tempat_lahir' => $row->tempat_lahir,
 		'tanggal_lahir' => $row->tanggal_lahir,
-		'umur' => $row->umur,
+		// 'umur' => $row->umur,
 		'jenis_kelamnin' => $row->jenis_kelamnin,
 		'golongan_darah' => $row->golongan_darah,
 		'no_hp' => $row->no_hp,
@@ -49,13 +50,13 @@ class Siswa extends CI_Controller
 		'pekerjaan_ibu' => $row->pekerjaan_ibu,
 		'jumlah_saudara' => $row->jumlah_saudara,
 		'urutan' => $row->urutan,
-		'universitas' => $row->universitas,
-		'fakultas' => $row->fakultas,
+		'id_universitas' => $row->universitas,
+		'id_fakultas' => $row->fakultas,
 		// 'id_jurusan' => $row->id_jurusan,
-		'jurusan' => $row->jurusan,
+		'id_jurusan' => $row->jurusan,
 		'tahun_masuk_universitas' => $row->tahun_masuk_universitas,
 		'tahun_masuk_ppm' => $row->tahun_masuk_ppm,
-		'kelas' => $row->kelas,
+		'id_kelas' => $row->kelas,
 	    );
             $this->template->load('v_admin','siswa_read', $data);
         } else {
@@ -70,11 +71,12 @@ class Siswa extends CI_Controller
             'button' => 'Create',
             'action' => site_url('siswa/create_action'),
 	    'id_siswa' => set_value('id_siswa'),
+	    'value' => set_value('value'),	    
 	    'siswa' => set_value('siswa'),
 	    'nama_panggilan' => set_value('nama_panggilan'),
 	    'tempat_lahir' => set_value('tempat_lahir'),
 	    'tanggal_lahir' => set_value('tanggal_lahir'),
-	    'umur' => set_value('umur'),
+	    // 'umur' => set_value('umur'),
 	    'jenis_kelamnin' => set_value('jenis_kelamnin'),
 	    'golongan_darah' => set_value('golongan_darah'),
 	    'no_hp' => set_value('no_hp'),
@@ -106,11 +108,12 @@ class Siswa extends CI_Controller
             $this->create();
         } else {
             $data = array(
+        'value' => $this->input->post('value',TRUE),
 		'siswa' => $this->input->post('siswa',TRUE),
 		'nama_panggilan' => $this->input->post('nama_panggilan',TRUE),
 		'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),
 		'tanggal_lahir' => $this->input->post('tanggal_lahir',TRUE),
-		'umur' => $this->input->post('umur',TRUE),
+		// 'umur' => $this->input->post('umur',TRUE),
 		'jenis_kelamnin' => $this->input->post('jenis_kelamnin',TRUE),
 		'golongan_darah' => $this->input->post('golongan_darah',TRUE),
 		'no_hp' => $this->input->post('no_hp',TRUE),
@@ -133,7 +136,7 @@ class Siswa extends CI_Controller
 	    );
             $this->load->model('nomorinduk_model','nim');
             if ($siswa = $this->nim->cekSiswa($data['siswa'],$data['nama_panggilan'])) {
-                $this->session->set_flashdata('message', 'Siswa telah ditambahkan dengan nomor induk '.$siswa->value);
+                $this->session->set_flashdata('message', 'Siswa sudah ada! dengan NIS : '.$siswa->value);
                 redirect(site_url('siswa'));
             }
 
@@ -152,12 +155,13 @@ class Siswa extends CI_Controller
             $data = array(
                 'button' => 'Update',
                 'action' => site_url('siswa/update_action'),
+		'value' => set_value('value', $row->value),
 		'id_siswa' => set_value('id_siswa', $row->id_siswa),
 		'siswa' => set_value('siswa', $row->siswa),
 		'nama_panggilan' => set_value('nama_panggilan', $row->nama_panggilan),
 		'tempat_lahir' => set_value('tempat_lahir', $row->tempat_lahir),
 		'tanggal_lahir' => set_value('tanggal_lahir', $row->tanggal_lahir),
-		'umur' => set_value('umur', $row->umur),
+		// 'umur' => set_value('umur', $row->umur),
 		'jenis_kelamnin' => set_value('jenis_kelamnin', $row->jenis_kelamnin),
 		'golongan_darah' => set_value('golongan_darah', $row->golongan_darah),
 		'no_hp' => set_value('no_hp', $row->no_hp),
@@ -197,7 +201,7 @@ class Siswa extends CI_Controller
 		'nama_panggilan' => $this->input->post('nama_panggilan',TRUE),
 		'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),
 		'tanggal_lahir' => $this->input->post('tanggal_lahir',TRUE),
-		'umur' => $this->input->post('umur',TRUE),
+		// 'umur' => $this->input->post('umur',TRUE),
 		'jenis_kelamnin' => $this->input->post('jenis_kelamnin',TRUE),
 		'golongan_darah' => $this->input->post('golongan_darah',TRUE),
 		'no_hp' => $this->input->post('no_hp',TRUE),
@@ -245,7 +249,7 @@ class Siswa extends CI_Controller
 	$this->form_validation->set_rules('nama_panggilan', 'nama panggilan', 'trim|required');
 	$this->form_validation->set_rules('tempat_lahir', 'tempat lahir', 'trim|required');
 	$this->form_validation->set_rules('tanggal_lahir', 'tanggal lahir', 'trim|required');
-	$this->form_validation->set_rules('umur', 'umur', 'trim|required');
+	// $this->form_validation->set_rules('umur', 'umur', 'trim|required');
 	$this->form_validation->set_rules('jenis_kelamnin', 'jenis kelamnin', 'trim|required');
 	$this->form_validation->set_rules('golongan_darah', 'golongan darah', 'trim|required');
 	$this->form_validation->set_rules('no_hp', 'no hp', 'trim|required');
@@ -273,8 +277,8 @@ class Siswa extends CI_Controller
     public function excel()
     {
         $this->load->helper('exportexcel');
-        $namaFile = "siswa.xls";
-        $judul = "siswa";
+        $namaFile = "Santri.xls";
+        $judul = "Daftar Santri";
         $tablehead = 0;
         $tablebody = 1;
         $nourut = 1;
@@ -292,11 +296,12 @@ class Siswa extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
-	xlsWriteLabel($tablehead, $kolomhead++, "Siswa");
+	xlsWriteLabel($tablehead, $kolomhead++, "NIS");
+	xlsWriteLabel($tablehead, $kolomhead++, "Nama Lengkap");
 	xlsWriteLabel($tablehead, $kolomhead++, "Nama Panggilan");
 	xlsWriteLabel($tablehead, $kolomhead++, "Tempat Lahir");
 	xlsWriteLabel($tablehead, $kolomhead++, "Tanggal Lahir");
-	xlsWriteLabel($tablehead, $kolomhead++, "Umur");
+	// xlsWriteLabel($tablehead, $kolomhead++, "Umur");
 	xlsWriteLabel($tablehead, $kolomhead++, "Jenis Kelamnin");
 	xlsWriteLabel($tablehead, $kolomhead++, "Golongan Darah");
 	xlsWriteLabel($tablehead, $kolomhead++, "No Hp");
@@ -310,23 +315,24 @@ class Siswa extends CI_Controller
 	xlsWriteLabel($tablehead, $kolomhead++, "Pekerjaan Ibu");
 	xlsWriteLabel($tablehead, $kolomhead++, "Jumlah Saudara");
 	xlsWriteLabel($tablehead, $kolomhead++, "Urutan");
-	xlsWriteLabel($tablehead, $kolomhead++, "Id Universitas");
-	xlsWriteLabel($tablehead, $kolomhead++, "Id Fakultas");
-	xlsWriteLabel($tablehead, $kolomhead++, "Id Jurusan");
+	xlsWriteLabel($tablehead, $kolomhead++, "Universitas");
+	xlsWriteLabel($tablehead, $kolomhead++, "Fakultas");
+	xlsWriteLabel($tablehead, $kolomhead++, "Jurusan");
 	xlsWriteLabel($tablehead, $kolomhead++, "Tahun Masuk Universitas");
 	xlsWriteLabel($tablehead, $kolomhead++, "Tahun Masuk Ppm");
-	xlsWriteLabel($tablehead, $kolomhead++, "Id Kelas");
+	xlsWriteLabel($tablehead, $kolomhead++, "Kelas");
 
 	foreach ($this->Siswa_model->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->value);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->siswa);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->nama_panggilan);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->tempat_lahir);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->tanggal_lahir);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->umur);
+	    // xlsWriteNumber($tablebody, $kolombody++, $data->umur);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->jenis_kelamnin);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->golongan_darah);
 	    xlsWriteNumber($tablebody, $kolombody++, $data->no_hp);
@@ -340,12 +346,12 @@ class Siswa extends CI_Controller
 	    xlsWriteLabel($tablebody, $kolombody++, $data->pekerjaan_ibu);
 	    xlsWriteNumber($tablebody, $kolombody++, $data->jumlah_saudara);
 	    xlsWriteNumber($tablebody, $kolombody++, $data->urutan);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->id_universitas);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->id_fakultas);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->id_jurusan);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->universitas);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->fakultas);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->jurusan);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->tahun_masuk_universitas);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->tahun_masuk_ppm);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->id_kelas);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->kelas);
 
 	    $tablebody++;
             $nourut++;
@@ -369,9 +375,3 @@ class Siswa extends CI_Controller
     }
 
 }
-
-/* End of file Siswa.php */
-/* Location: ./application/controllers/Siswa.php */
-/* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2017-05-27 11:49:59 */
-/* http://harviacode.com */

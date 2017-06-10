@@ -38,12 +38,12 @@
 		<th>Pekerjaan Ibu</th>
 		<th>Jumlah Saudara</th>
 		<th>Urutan</th>
-		<th>Id Universitas</th>
-		<th>Id Fakultas</th>
-		<th>Id Jurusan</th>
+		<th>Universitas</th>
+		<th>Fakultas</th>
+		<th>Jurusan</th>
 		<th>Tahun Masuk Universitas</th>
 		<th>Tahun Masuk Ppm</th>
-		<th>Id Kelas</th>
+		<th>Kelas</th>
 		
             </tr><?php
             foreach ($siswa_data as $siswa)
@@ -69,12 +69,12 @@
 		      <td><?php echo $siswa->pekerjaan_ibu ?></td>
 		      <td><?php echo $siswa->jumlah_saudara ?></td>
 		      <td><?php echo $siswa->urutan ?></td>
-		      <td><?php echo $siswa->id_universitas ?></td>
-		      <td><?php echo $siswa->id_fakultas ?></td>
-		      <td><?php echo $siswa->id_jurusan ?></td>
+		      <td><?php echo $siswa->universitas ?></td>
+		      <td><?php echo $siswa->fakultas ?></td>
+		      <td><?php echo $siswa->jurusan ?></td>
 		      <td><?php echo $siswa->tahun_masuk_universitas ?></td>
 		      <td><?php echo $siswa->tahun_masuk_ppm ?></td>
-		      <td><?php echo $siswa->id_kelas ?></td>	
+		      <td><?php echo $siswa->kelas ?></td>	
                 </tr>
                 <?php
             }

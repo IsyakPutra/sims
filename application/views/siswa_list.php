@@ -5,9 +5,9 @@
             <div class='col-xs-12'>
               <div class='box'>
                 <div class='box-header'>
-                  <h3 class='box-title'>DAFTAR SISWA&nbsp <?php echo anchor('siswa/create/','TAMBAH',array('class'=>'btn btn-warning btn-sm'));?>
+                  <h3 class='box-title'>DAFTAR SANRI&nbsp <?php echo anchor('siswa/create/','TAMBAH',array('class'=>'btn btn-warning btn-sm'));?>
 		<?php echo anchor(site_url('siswa/excel'), ' <i class="fa fa-file-excel-o"></i> Excel', 'class="btn btn-success btn-sm"'); ?>
-		<?php echo anchor(site_url('siswa/word'), '<i class="fa fa-file-word-o"></i> Word', 'class="btn btn-primary btn-sm"'); ?>
+		<!-- <?php echo anchor(site_url('siswa/word'), '<i class="fa fa-file-word-o"></i> Word', 'class="btn btn-primary btn-sm"'); ?> -->
 		
                 </div><!-- /.box-header -->
 
@@ -17,11 +17,12 @@
             <thead>
                 <tr>
                     <th>No</th>
+            <th>NIS</th>
 		    <th>Nama Siswa</th>
 		    <th>Nama Panggilan</th>
 		    <th>Tempat Lahir</th>
 		    <th>Tanggal Lahir</th>
-		    <th>Umur</th>
+		    <!-- <th>Umur</th> -->
 		    <th>Jenis Kelamnin</th>
 		    <th>Golongan Darah</th>
 		    <th>No Hp</th>
@@ -52,11 +53,12 @@
                 ?>
                 <tr>
 		    <td><?php echo ++$start ?></td>
+		    <td><?php echo $siswa->value ?></td>
 		    <td><?php echo $siswa->siswa ?></td>
 		    <td><?php echo $siswa->nama_panggilan ?></td>
 		    <td><?php echo $siswa->tempat_lahir ?></td>
 		    <td><?php echo $siswa->tanggal_lahir ?></td>
-		    <td><?php echo $siswa->umur ?></td>
+		    <!-- <td><?php echo $siswa->umur ?></td> -->
 		    <td><?php echo $siswa->jenis_kelamnin ?></td>
 		    <td><?php echo $siswa->golongan_darah ?></td>
 		    <td><?php echo $siswa->no_hp ?></td>

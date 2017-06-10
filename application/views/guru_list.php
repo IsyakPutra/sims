@@ -15,7 +15,8 @@
             <thead>
                 <tr>
                     <th width="80px">No</th>
-		    <th>Nama Guru</th>
+		    <th>NIG</th>
+            <th>Nama Guru</th>
 		    <th>Nama Panggilan</th>
 		    <th>Jenis Kelamin</th>
 		    <th>Tempat Lahir</th>
@@ -33,6 +34,7 @@
                 ?>
                 <tr>
 		    <td><?php echo ++$start ?></td>
+            <td><?php echo $guru->value ?></td>
 		    <td><?php echo $guru->guru ?></td>
 		    <td><?php echo $guru->nama_panggilan ?></td>
 		    <td><?php echo $guru->jenis_kelamin ?></td>
