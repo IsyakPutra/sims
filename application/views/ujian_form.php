@@ -8,7 +8,7 @@
                   <h3 class='box-title'>FORMULIR NILAI UJIAN</h3>
                       <div class='box box-primary'>
         <form action="<?php echo $action; ?>" method="post"><table class='table table-bordered'>
-	    <tr><td class="col-sm-3 control-label">Nama Siswa <?php echo form_error('id_siswa') ?></td>
+	    <tr><td class="col-sm-3 control-label">Nama Santri <?php echo form_error('id_siswa') ?></td>
             <td>
             <?php echo cmb_dinamis('id_siswa', 'siswa', 'siswa', 'id_siswa', $id_guru) ?>
         </td>
@@ -20,11 +20,11 @@
             <td>
             <?php echo cmb_dinamis('id_kelas', 'kelas', 'kelas', 'id_kelas', $id_kelas) ?>
         </td>
-	    <tr><td>Materi Ujian<?php echo form_error('id_materi') ?></td>
+	    <tr><td>Materi Munaqosyah<?php echo form_error('id_materi') ?></td>
             <td>
             <?php echo cmb_dinamis('id_materi', 'materi', 'materi', 'id_materi', $id_materi) ?>
         </td>
-	    <tr><td>UAS ke- <?php echo form_error('id_uas') ?></td>
+	    <tr><td>MUNAQOSYAH ke- <?php echo form_error('id_uas') ?></td>
             <td>
             <?php echo cmb_dinamis('id_uas', 'uas', 'uas', 'id_uas', $id_uas) ?>
         </td>

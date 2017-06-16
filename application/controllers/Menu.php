@@ -86,7 +86,7 @@ class Menu extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Update',
+                'button' => 'Ubah',
                 'action' => site_url('menu/update_action'),
 		'id' => set_value('id', $row->id),
 		'name' => set_value('name', $row->name),

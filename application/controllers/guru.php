@@ -50,9 +50,9 @@ class Guru extends CI_Controller
     public function create() 
     {
         $data = array(
-            'button' => 'Create',
-            'action' => site_url('guru/create_action'),
-	    'id_guru' => set_value('id_guru'),
+            'button' => 'Tambah',
+            'action' => site_url('guru/create_action'),	    
+        'id_guru' => set_value('id_guru'),
         'value' => set_value('value'),
 	    'guru' => set_value('guru'),
 	    'nama_panggilan' => set_value('nama_panggilan'),
@@ -67,10 +67,12 @@ class Guru extends CI_Controller
     
     public function create_action() 
     {
-        $this->_rules();
+        //$this->_rules();
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->create();
+        $this->load->library('form_validation');
+
+        if ($this->form_validation->run('gurucreate') == FALSE) {
+            $this->create();        
         } else {
             $data = array(
 		'guru' => $this->input->post('guru',TRUE),
@@ -99,8 +101,9 @@ class Guru extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Update',
+                'button' => 'Ubah',
                 'action' => site_url('guru/update_action'),
+        'value' => set_value('value', $row->value),
 		'id_guru' => set_value('id_guru', $row->id_guru),
 		'guru' => set_value('guru', $row->guru),
 		'nama_panggilan' => set_value('nama_panggilan', $row->nama_panggilan),
@@ -119,9 +122,10 @@ class Guru extends CI_Controller
     
     public function update_action() 
     {
-        $this->_rules();
+        //$this->_rules();
+        $this->load->library('form_validation');        
 
-        if ($this->form_validation->run() == FALSE) {
+        if ($this->form_validation->run('guruedit') == FALSE) {
             $this->update($this->input->post('id_guru', TRUE));
         } else {
             $data = array(
@@ -190,26 +194,28 @@ class Guru extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
-	xlsWriteLabel($tablehead, $kolomhead++, "Guru");
+    xlsWriteLabel($tablehead, $kolomhead++, "NIG");
+	xlsWriteLabel($tablehead, $kolomhead++, "Nama Lengkap");
 	xlsWriteLabel($tablehead, $kolomhead++, "Nama Panggilan");
 	xlsWriteLabel($tablehead, $kolomhead++, "Jenis Kelamin");
 	xlsWriteLabel($tablehead, $kolomhead++, "Tempat Lahir");
 	xlsWriteLabel($tablehead, $kolomhead++, "Tanggal Lahir");
 	xlsWriteLabel($tablehead, $kolomhead++, "Tempat Asal");
-	xlsWriteLabel($tablehead, $kolomhead++, "Id Kelas");
+	xlsWriteLabel($tablehead, $kolomhead++, "Kelas Pengampu");
 
 	foreach ($this->Guru_model->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
+        xlsWriteLabel($tablebody, $kolombody++, $data->value);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->guru);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->nama_panggilan);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->jenis_kelamin);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->tempat_lahir);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->tanggal_lahir);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->tempat_asal);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->id_kelas);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->kelas);
 
 	    $tablebody++;
             $nourut++;

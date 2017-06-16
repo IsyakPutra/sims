@@ -17,9 +17,9 @@
                     <th width="10px">No</th>
 		    <th>Nama Menu</th>
 		    <th>Link</th>
-		    <th width="30">Icon</th>
-		    <th>Aktif</th>
-		    <th>Parent</th>
+		    <th width="30">Ikon</th>
+		    <th>Status</th>
+		    <th>Jenis</th>
 		    <th>Aksi</th>
                 </tr>
             </thead>

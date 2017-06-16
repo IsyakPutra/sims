@@ -14,7 +14,7 @@
         <table class="table table-bordered table-striped" id="mytable">
             <thead>
                 <tr>
-                    <th width="80px">No</th>
+                    <th>No</th>
 		    <th>NIG</th>
             <th>Nama Guru</th>
 		    <th>Nama Panggilan</th>

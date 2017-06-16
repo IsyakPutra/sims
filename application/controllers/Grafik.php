@@ -16,7 +16,7 @@ class Grafik extends CI_Controller {
     $this->highcharts->set_type('column');
     $this->highcharts->set_title('Rata-rata Tiap Semester');
     $this->highcharts->set_xAxis($graph_data['axis']);
-    $this->highcharts->set_axis_titles('UAS','Nilai');
+    $this->highcharts->set_axis_titles('Munaqosyah','Nilai');
     $data = [
       'grafik1'=>$this->highcharts->set_serie($rerata)->render(),
       'uas'=>$this->gm->getUas()
@@ -41,7 +41,7 @@ class Grafik extends CI_Controller {
       'data'=>$this->gm->nilai($gender,$uas,3)
     ];
     $this->highcharts->set_type('column');
-    $this->highcharts->set_title('UAS '.$uas.' Putra');
+    $this->highcharts->set_title('Munaqosyah '.$uas.' Putra');
     $this->highcharts->set_xAxis($graph_data['axis']);
     $this->highcharts->set_axis_titles('Kelas','Nilai');
     $data = [
@@ -62,7 +62,7 @@ class Grafik extends CI_Controller {
       'data'=>$this->gm->nilai($gender,$uas,3)
     ];
     $this->highcharts->set_type('column');
-    $this->highcharts->set_title('UAS '.$uas.' Putri');
+    $this->highcharts->set_title('Munaqosyah '.$uas.' Putri');
     $this->highcharts->set_xAxis($graph_data['axis']);
     $this->highcharts->set_axis_titles('Kelas','Nilai');
     $data = [
@@ -87,7 +87,7 @@ class Grafik extends CI_Controller {
       'data'=>$this->gm->nilaiKelas($uas,3)
     ];
     $this->highcharts->set_type('column');
-    $this->highcharts->set_title('UAS '.$uas);
+    $this->highcharts->set_title('Munaqosyah'.$uas);
     $this->highcharts->set_xAxis($graph_data['axis']);
     $this->highcharts->set_axis_titles('Kelas','Nilai');
     $data = [

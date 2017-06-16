@@ -43,7 +43,7 @@ class Kelas extends CI_Controller
     public function create() 
     {
         $data = array(
-            'button' => 'Create',
+            'button' => 'Tambah',
             'action' => site_url('kelas/create_action'),
 	    'id_kelas' => set_value('id_kelas'),
 	    'kelas' => set_value('kelas'),
@@ -74,7 +74,7 @@ class Kelas extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Update',
+                'button' => 'Ubah',
                 'action' => site_url('kelas/update_action'),
 		'id_kelas' => set_value('id_kelas', $row->id_kelas),
 		'kelas' => set_value('kelas', $row->kelas),

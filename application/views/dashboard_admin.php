@@ -79,7 +79,7 @@
                 <section class="sidebar">
                
                     <ul class="sidebar-menu">
-                        <li class="header"><center>KELOLA DATA SISWA</center></li>                  
+                        <li class="header"><center>KELOLA DATA SANTRI</center></li>                  
 
                         <?php
                         $menu = $this->db->get_where('menu', array('is_parent' => 0,'is_active'=>1));
@@ -105,23 +105,23 @@
 
 
 
-                        <li class="header"><center>AKADEMIK SISWA</center></li>
+                             <li class="header"><center>AKADEMIK SANTRI</center></li>
 
         <li>
             <a href="<?php echo site_url('ujian') ?>">
-                <i class="fa fa-edit"></i> <span>NILAI AKADEMIK</span>
+                <i class="fa fa-edit"></i> <span>MUNAQOSYAH</span>
             </a>
         </li>
 
         <li>
             <a href="<?= base_url('grafik') ?>">
-                <i class="fa fa-pie-chart"></i> <span>GRAFIK AKADEMIK</span>
+                <i class="fa fa-area-chart"></i> <span>GRAFIK MUNAQOSYAH</span>
             </a>
         </li>
-        <li class="header"><center>KALENDER AKADEMIK</center></li>
+        <li class="header"><center>KALENDER SANTRI</center></li>
         <li>
             <a href="<?= base_url('kalender') ?>">
-                <i class="fa fa-calendar"></i> <span>AGENDA</span>
+                <i class="fa fa-calendar"></i> <span>AGENDA SANTRI</span>
             </a>
         </li>
         

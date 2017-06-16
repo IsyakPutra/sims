@@ -68,7 +68,7 @@ class Siswa extends CI_Controller
     public function create() 
     {
         $data = array(
-            'button' => 'Create',
+            'button' => 'Tambah',
             'action' => site_url('siswa/create_action'),
 	    'id_siswa' => set_value('id_siswa'),
 	    'value' => set_value('value'),	    
@@ -102,38 +102,38 @@ class Siswa extends CI_Controller
     
     public function create_action() 
     {
-        $this->_rules();
+        $this->load->library('form_validation');
 
-        if ($this->form_validation->run() == FALSE) {
+        if ($this->form_validation->run('create') == FALSE) {
             $this->create();
         } else {
             $data = array(
-        'value' => $this->input->post('value',TRUE),
-		'siswa' => $this->input->post('siswa',TRUE),
-		'nama_panggilan' => $this->input->post('nama_panggilan',TRUE),
-		'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),
-		'tanggal_lahir' => $this->input->post('tanggal_lahir',TRUE),
-		// 'umur' => $this->input->post('umur',TRUE),
-		'jenis_kelamnin' => $this->input->post('jenis_kelamnin',TRUE),
-		'golongan_darah' => $this->input->post('golongan_darah',TRUE),
-		'no_hp' => $this->input->post('no_hp',TRUE),
-		'alamat' => $this->input->post('alamat',TRUE),
-		'provinsi' => $this->input->post('provinsi',TRUE),
-		'kabupaten' => $this->input->post('kabupaten',TRUE),
-		'kecamatan' => $this->input->post('kecamatan',TRUE),
-		'nama_ayah' => $this->input->post('nama_ayah',TRUE),
-		'pekerjaan_ayah' => $this->input->post('pekerjaan_ayah',TRUE),
-		'nama_ibu' => $this->input->post('nama_ibu',TRUE),
-		'pekerjaan_ibu' => $this->input->post('pekerjaan_ibu',TRUE),
-		'jumlah_saudara' => $this->input->post('jumlah_saudara',TRUE),
-		'urutan' => $this->input->post('urutan',TRUE),
-		'id_universitas' => $this->input->post('id_universitas',TRUE),
-		'id_fakultas' => $this->input->post('id_fakultas',TRUE),
-		'id_jurusan' => $this->input->post('id_jurusan',TRUE),
-		'tahun_masuk_universitas' => $this->input->post('tahun_masuk_universitas',TRUE),
-		'tahun_masuk_ppm' => $this->input->post('tahun_masuk_ppm',TRUE),
-		'id_kelas' => $this->input->post('id_kelas',TRUE),
-	    );
+			    // 'value' => $this->input->post('value',TRUE),
+				'siswa' => $this->input->post('siswa',TRUE),
+				'nama_panggilan' => $this->input->post('nama_panggilan',TRUE),
+				'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),
+				'tanggal_lahir' => $this->input->post('tanggal_lahir',TRUE),
+				// 'umur' => $this->input->post('umur',TRUE),
+				'jenis_kelamnin' => $this->input->post('jenis_kelamnin',TRUE),
+				'golongan_darah' => $this->input->post('golongan_darah',TRUE),
+				'no_hp' => $this->input->post('no_hp',TRUE),
+				'alamat' => $this->input->post('alamat',TRUE),
+				'provinsi' => $this->input->post('provinsi',TRUE),
+				'kabupaten' => $this->input->post('kabupaten',TRUE),
+				'kecamatan' => $this->input->post('kecamatan',TRUE),
+				'nama_ayah' => $this->input->post('nama_ayah',TRUE),
+				'pekerjaan_ayah' => $this->input->post('pekerjaan_ayah',TRUE),
+				'nama_ibu' => $this->input->post('nama_ibu',TRUE),
+				'pekerjaan_ibu' => $this->input->post('pekerjaan_ibu',TRUE),
+				'jumlah_saudara' => $this->input->post('jumlah_saudara',TRUE),
+				'urutan' => $this->input->post('urutan',TRUE),
+				'id_universitas' => $this->input->post('id_universitas',TRUE),
+				'id_fakultas' => $this->input->post('id_fakultas',TRUE),
+				'id_jurusan' => $this->input->post('id_jurusan',TRUE),
+				'tahun_masuk_universitas' => $this->input->post('tahun_masuk_universitas',TRUE),
+				'tahun_masuk_ppm' => $this->input->post('tahun_masuk_ppm',TRUE),
+				'id_kelas' => $this->input->post('id_kelas',TRUE),
+		    );
             $this->load->model('nomorinduk_model','nim');
             if ($siswa = $this->nim->cekSiswa($data['siswa'],$data['nama_panggilan'])) {
                 $this->session->set_flashdata('message', 'Siswa sudah ada! dengan NIS : '.$siswa->value);
@@ -144,6 +144,8 @@ class Siswa extends CI_Controller
             $this->ramalib->nomorIndukFor('siswa',$id,$data['tahun_masuk_ppm'],$data['id_kelas']);
             $this->session->set_flashdata('message', 'Create Record Success');
             redirect(site_url('siswa'));
+    	
+    	$this->load->view('siswa_list');
         }
     }
     
@@ -153,36 +155,36 @@ class Siswa extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Update',
+                'button' => 'Ubah',
                 'action' => site_url('siswa/update_action'),
-		'value' => set_value('value', $row->value),
-		'id_siswa' => set_value('id_siswa', $row->id_siswa),
-		'siswa' => set_value('siswa', $row->siswa),
-		'nama_panggilan' => set_value('nama_panggilan', $row->nama_panggilan),
-		'tempat_lahir' => set_value('tempat_lahir', $row->tempat_lahir),
-		'tanggal_lahir' => set_value('tanggal_lahir', $row->tanggal_lahir),
-		// 'umur' => set_value('umur', $row->umur),
-		'jenis_kelamnin' => set_value('jenis_kelamnin', $row->jenis_kelamnin),
-		'golongan_darah' => set_value('golongan_darah', $row->golongan_darah),
-		'no_hp' => set_value('no_hp', $row->no_hp),
-		'alamat' => set_value('alamat', $row->alamat),
-		'provinsi' => set_value('provinsi', $row->provinsi),
-		'kabupaten' => set_value('kabupaten', $row->kabupaten),
-		'kecamatan' => set_value('kecamatan', $row->kecamatan),
-		'nama_ayah' => set_value('nama_ayah', $row->nama_ayah),
-		'pekerjaan_ayah' => set_value('pekerjaan_ayah', $row->pekerjaan_ayah),
-		'nama_ibu' => set_value('nama_ibu', $row->nama_ibu),
-		'pekerjaan_ibu' => set_value('pekerjaan_ibu', $row->pekerjaan_ibu),
-		'jumlah_saudara' => set_value('jumlah_saudara', $row->jumlah_saudara),
-		'urutan' => set_value('urutan', $row->urutan),
-		'id_universitas' => set_value('id_universitas', $row->id_universitas),
-		'id_fakultas' => set_value('id_fakultas', $row->id_fakultas),
-		'id_jurusan' => set_value('id_jurusan', $row->id_jurusan),
-		'tahun_masuk_universitas' => set_value('tahun_masuk_universitas', $row->tahun_masuk_universitas),
-		'tahun_masuk_ppm' => set_value('tahun_masuk_ppm', $row->tahun_masuk_ppm),
-		'id_kelas' => set_value('id_kelas', $row->id_kelas),
-	    );
-            $this->template->load('v_admin','siswa_form', $data);
+				'value' => set_value('value', $row->value),
+				'id_siswa' => set_value('id_siswa', $row->id_siswa),
+				'siswa' => set_value('siswa', $row->siswa),
+				'nama_panggilan' => set_value('nama_panggilan', $row->nama_panggilan),
+				'tempat_lahir' => set_value('tempat_lahir', $row->tempat_lahir),
+				'tanggal_lahir' => set_value('tanggal_lahir', $row->tanggal_lahir),
+				// 'umur' => set_value('umur', $row->umur),
+				'jenis_kelamnin' => set_value('jenis_kelamnin', $row->jenis_kelamnin),
+				'golongan_darah' => set_value('golongan_darah', $row->golongan_darah),
+				'no_hp' => set_value('no_hp', $row->no_hp),
+				'alamat' => set_value('alamat', $row->alamat),
+				'provinsi' => set_value('provinsi', $row->provinsi),
+				'kabupaten' => set_value('kabupaten', $row->kabupaten),
+				'kecamatan' => set_value('kecamatan', $row->kecamatan),
+				'nama_ayah' => set_value('nama_ayah', $row->nama_ayah),
+				'pekerjaan_ayah' => set_value('pekerjaan_ayah', $row->pekerjaan_ayah),
+				'nama_ibu' => set_value('nama_ibu', $row->nama_ibu),
+				'pekerjaan_ibu' => set_value('pekerjaan_ibu', $row->pekerjaan_ibu),
+				'jumlah_saudara' => set_value('jumlah_saudara', $row->jumlah_saudara),
+				'urutan' => set_value('urutan', $row->urutan),
+				'id_universitas' => set_value('id_universitas', $row->id_universitas),
+				'id_fakultas' => set_value('id_fakultas', $row->id_fakultas),
+				'id_jurusan' => set_value('id_jurusan', $row->id_jurusan),
+				'tahun_masuk_universitas' => set_value('tahun_masuk_universitas', $row->tahun_masuk_universitas),
+				'tahun_masuk_ppm' => set_value('tahun_masuk_ppm', $row->tahun_masuk_ppm),
+				'id_kelas' => set_value('id_kelas', $row->id_kelas),
+	    	);
+            	$this->template->load('v_admin','siswa_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('siswa'));
@@ -191,37 +193,40 @@ class Siswa extends CI_Controller
     
     public function update_action() 
     {
-        $this->_rules();
-
-        if ($this->form_validation->run() == FALSE) {
+        // $this->_rules();
+        $this->load->library('form_validation');
+         if ($this->form_validation->run('edit') == FALSE) {
             $this->update($this->input->post('id_siswa', TRUE));
+
+        // if ($this->form_validation->run('edit') == FALSE) {
+        //     $this->update($this->input->post('id_siswa', TRUE));
         } else {
             $data = array(
-		'siswa' => $this->input->post('siswa',TRUE),
-		'nama_panggilan' => $this->input->post('nama_panggilan',TRUE),
-		'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),
-		'tanggal_lahir' => $this->input->post('tanggal_lahir',TRUE),
-		// 'umur' => $this->input->post('umur',TRUE),
-		'jenis_kelamnin' => $this->input->post('jenis_kelamnin',TRUE),
-		'golongan_darah' => $this->input->post('golongan_darah',TRUE),
-		'no_hp' => $this->input->post('no_hp',TRUE),
-		'alamat' => $this->input->post('alamat',TRUE),
-		'provinsi' => $this->input->post('provinsi',TRUE),
-		'kabupaten' => $this->input->post('kabupaten',TRUE),
-		'kecamatan' => $this->input->post('kecamatan',TRUE),
-		'nama_ayah' => $this->input->post('nama_ayah',TRUE),
-		'pekerjaan_ayah' => $this->input->post('pekerjaan_ayah',TRUE),
-		'nama_ibu' => $this->input->post('nama_ibu',TRUE),
-		'pekerjaan_ibu' => $this->input->post('pekerjaan_ibu',TRUE),
-		'jumlah_saudara' => $this->input->post('jumlah_saudara',TRUE),
-		'urutan' => $this->input->post('urutan',TRUE),
-		'id_universitas' => $this->input->post('id_universitas',TRUE),
-		'id_fakultas' => $this->input->post('id_fakultas',TRUE),
-		'id_jurusan' => $this->input->post('id_jurusan',TRUE),
-		'tahun_masuk_universitas' => $this->input->post('tahun_masuk_universitas',TRUE),
-		'tahun_masuk_ppm' => $this->input->post('tahun_masuk_ppm',TRUE),
-		'id_kelas' => $this->input->post('id_kelas',TRUE),
-	    );
+				'siswa' => $this->input->post('siswa',TRUE),
+				'nama_panggilan' => $this->input->post('nama_panggilan',TRUE),
+				'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),
+				'tanggal_lahir' => $this->input->post('tanggal_lahir',TRUE),
+				// 'umur' => $this->input->post('umur',TRUE),
+				'jenis_kelamnin' => $this->input->post('jenis_kelamnin',TRUE),
+				'golongan_darah' => $this->input->post('golongan_darah',TRUE),
+				'no_hp' => $this->input->post('no_hp',TRUE),
+				'alamat' => $this->input->post('alamat',TRUE),
+				'provinsi' => $this->input->post('provinsi',TRUE),
+				'kabupaten' => $this->input->post('kabupaten',TRUE),
+				'kecamatan' => $this->input->post('kecamatan',TRUE),
+				'nama_ayah' => $this->input->post('nama_ayah',TRUE),
+				'pekerjaan_ayah' => $this->input->post('pekerjaan_ayah',TRUE),
+				'nama_ibu' => $this->input->post('nama_ibu',TRUE),
+				'pekerjaan_ibu' => $this->input->post('pekerjaan_ibu',TRUE),
+				'jumlah_saudara' => $this->input->post('jumlah_saudara',TRUE),
+				'urutan' => $this->input->post('urutan',TRUE),
+				'id_universitas' => $this->input->post('id_universitas',TRUE),
+				'id_fakultas' => $this->input->post('id_fakultas',TRUE),
+				'id_jurusan' => $this->input->post('id_jurusan',TRUE),
+				'tahun_masuk_universitas' => $this->input->post('tahun_masuk_universitas',TRUE),
+				'tahun_masuk_ppm' => $this->input->post('tahun_masuk_ppm',TRUE),
+				'id_kelas' => $this->input->post('id_kelas',TRUE),
+			    );
 
             $this->Siswa_model->update($this->input->post('id_siswa', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');

@@ -5,10 +5,10 @@
             <div class='col-xs-12'>
               <div class='box'>
                 <div class='box-header'>
-                <h3 class='box-title'>Fakultas Read</h3>
+                <h3 class='box-title'>Lihat Fakultas</h3>
         <table class="table table-bordered">
 	    <tr><td>Fakultas</td><td><?php echo $fakultas; ?></td></tr>
-	    <tr><td></td><td><a href="<?php echo site_url('fakultas') ?>" class="btn btn-default">Cancel</a></td></tr>
+	    <tr><td></td><td><a href="<?php echo site_url('fakultas') ?>" class="btn btn-danger">Cancel</a></td></tr>
 	</table>
         </div><!-- /.box-body -->
               </div><!-- /.box -->

@@ -28,6 +28,12 @@
             <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+
+        <!-- datepicker -->
+
+        <link rel="stylesheet" href="<?= base_url('plugins/datetimepicker/bootstrap-datepicker.min.css')?>" media='screen'>
+
+
         <!-- jQuery 2.1.4 -->
         <script src="<?php echo base_url() ?>template/plugins/jQuery/jQuery-2.1.4.min.js"></script>
         <?php if ($this->uri->segment(1) == 'kalender'): ?><!-- assets uri kalender -->
@@ -42,6 +48,7 @@
             <script src="<?= base_url('plugins/datetimepicker/bootstrap-datetimepicker.min.js')?>"></script>
             <script src="<?= base_url('plugins/datetimepicker/bootstrap-datetimepicker.id.js')?>"></script>
             <script src="<?= base_url('assets/js/custom.js')?>"></script>
+            
         <!-- /assets uri kalender --><?php endif ?> 
         <?php if ($this->uri->segment(1) == 'grafik'): ?><!-- assets uri grafik -->
             <script src="<?= base_url('plugins/highcharts/highcharts.js')?>"></script>
@@ -102,7 +109,7 @@
                 <section class="sidebar">
                
                     <ul class="sidebar-menu">
-                        <li class="header"><center>KELOLA DATA SISWA</center></li>                  
+                        <li class="header"><center>KELOLA DATA SANTRI</center></li>                  
 
                         <?php
                         $menu = $this->db->get_where('menu', array('is_parent' => 0,'is_active'=>1));
@@ -128,23 +135,23 @@
 
 
 
-                        <li class="header"><center>AKADEMIK SISWA</center></li>
+                        <li class="header"><center>AKADEMIK SANTRI</center></li>
 
         <li>
             <a href="<?php echo site_url('ujian') ?>">
-                <i class="fa fa-edit"></i> <span>NILAI AKADEMIK</span>
+                <i class="fa fa-edit"></i> <span>MUNAQOSYAH</span>
             </a>
         </li>
 
         <li>
             <a href="<?= base_url('grafik') ?>">
-                <i class="fa fa-area-chart"></i> <span>GRAFIK AKADEMIK</span>
+                <i class="fa fa-area-chart"></i> <span>GRAFIK MUNAQOSYAH</span>
             </a>
         </li>
-        <li class="header"><center>KALENDER AKADEMIK</center></li>
+        <li class="header"><center>KALENDER SANTRI</center></li>
         <li>
             <a href="<?= base_url('kalender') ?>">
-                <i class="fa fa-calendar"></i> <span>AGENDA</span>
+                <i class="fa fa-calendar"></i> <span>AGENDA SANTRI</span>
             </a>
         </li>
         
@@ -210,5 +217,8 @@
                 });
             });
         </script>
+        <!-- datepicker -->
+        <script src="<?= base_url('plugins/datetimepicker/bootstrap-datepicker.min.js')?>"></script>
+        <script src="<?= base_url('plugins/datetimepicker/bootstrap-datepicker.id.min.js')?>"></script>
     </body>
 </html>

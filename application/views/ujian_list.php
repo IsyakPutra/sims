@@ -15,7 +15,8 @@
             <thead>
                 <tr>
                     <th width="80px">No</th>
-		    <th>Nama Siswa</th>
+		    <!-- <th>NIS</th> -->
+            <th>Nama Siswa</th>
 		    <th>Guru Penguji</th>
 		    <th>Kelas</th>
 		    <th>Materi Ujian</th>
@@ -32,7 +33,8 @@
                 ?>
                 <tr>
 		    <td><?php echo ++$start ?></td>
-		    <td><?php echo $ujian->siswa ?></td>
+		    <!-- <td><?php echo $ujian->value ?></td> -->
+            <td><?php echo $ujian->siswa ?></td>
 		    <td><?php echo $ujian->guru ?></td>
 		    <td><?php echo $ujian->kelas ?></td>
 		    <td><?php echo $ujian->materi ?></td>

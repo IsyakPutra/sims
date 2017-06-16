@@ -1,9 +1,9 @@
-<section class="content">
+ <section class="content">
   <div class="row">
     <div class="col-md-12">
       <div class="box box-primary text-center">
         <div class="box-header with-border">
-          <h3 class="box-title">Nilai Rata-rata Tiap Semester</h3>
+          <h3 class="box-title"><strong>GRAFIK NILAI MUNAQOSYAH SANTRI</strong></h1>
         </div>
         <div class="box-body">
           <div class="btn-group">

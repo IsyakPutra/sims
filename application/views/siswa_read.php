@@ -8,7 +8,7 @@
                 <h3 class='box-title'>LIHAT SANTRI</h3>
         <table class="table table-bordered">
         <tr><td>NIS</td><td><?php echo $value; ?></td></tr>
-	    <tr><td>Siswa</td><td><?php echo $siswa; ?></td></tr>
+	    <tr><td>Nama Lengkap</td><td><?php echo $siswa; ?></td></tr>
 	    <tr><td>Nama Panggilan</td><td><?php echo $nama_panggilan; ?></td></tr>
 	    <tr><td>Tempat Lahir</td><td><?php echo $tempat_lahir; ?></td></tr>
 	    <tr><td>Tanggal Lahir</td><td><?php echo $tanggal_lahir; ?></td></tr>
@@ -32,7 +32,7 @@
 	    <tr><td>Tahun Masuk Universitas</td><td><?php echo $tahun_masuk_universitas; ?></td></tr>
 	    <tr><td>Tahun Masuk Ppm</td><td><?php echo $tahun_masuk_ppm; ?></td></tr>
 	    <tr><td>Kelas</td><td><?php echo $id_kelas; ?></td></tr>
-	    <tr><td></td><td><a href="<?php echo site_url('siswa') ?>" class="btn btn-default">Cancel</a></td></tr>
+	    <tr><td></td><td><a href="<?php echo site_url('siswa') ?>" class="btn btn-danger">Batal</a></td></tr>
 	</table>
         </div><!-- /.box-body -->
               </div><!-- /.box -->

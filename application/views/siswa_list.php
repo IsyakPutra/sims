@@ -18,17 +18,17 @@
                 <tr>
                     <th>No</th>
             <th>NIS</th>
-		    <th>Nama Siswa</th>
+		    <th>Nama Lengkap</th>
 		    <th>Nama Panggilan</th>
 		    <th>Tempat Lahir</th>
 		    <th>Tanggal Lahir</th>
 		    <!-- <th>Umur</th> -->
-		    <th>Jenis Kelamnin</th>
+		    <th>Jenis Kelamin</th>
 		    <th>Golongan Darah</th>
-		    <th>No Hp</th>
-		    <th style="padding-right: 7%">Alamat</th>
+		    <th>No HP</th>
+		    <th style="padding-right: 7%">Alamat Lengkap</th>
 		    <th>Provinsi</th>
-		    <th>Kabupaten</th>
+		    <th>Kota/Kabupaten</th>
 		    <th>Kecamatan</th>
 		    <th>Nama Ayah</th>
 		    <th>Pekerjaan Ayah</th>

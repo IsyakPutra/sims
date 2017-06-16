@@ -58,7 +58,7 @@
                     </div><!-- /.col -->
 
                 </div>
-                <center><h4>Sistem Informasi Manajemen Siswa<br><b>PPM Yogyakarta</b></h4></center>
+                <center><h4>Sistem Informasi Manajemen Santri<br><b>PPM Yogyakarta</b></h4></center>
                 </form>
 
 

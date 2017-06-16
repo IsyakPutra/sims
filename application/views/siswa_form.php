@@ -11,18 +11,34 @@
         <tr><td class="col-sm-3 control-label">NIS <?php echo form_error('value') ?></td>
             <td><input type="text" class="form-control" name="value" id="value" placeholder="Nomor Induk Santri" value="<?php echo $value; ?>" required disabled/>
         </td>
-        <tr><td class="col-sm-3 control-label">Nama Siswa <?php echo form_error('siswa') ?></td>
+        <tr><td class="col-sm-3 control-label">Nama Lengkap <?php echo form_error('siswa') ?></td>
             <td><input type="text" class="form-control" name="siswa" id="siswa" placeholder="Nama Lengkap" value="<?php echo $siswa; ?>" required/>
         </td>
-        <tr><td>Nama Panggilan <?php echo form_error('nama_panggilan') ?></td>
+        
+        <tr><td>Nama Panggilan <div class="disabled btn-danger" style="text-align: center;"><?php echo form_error('nama_panggilan') ?></div></td>
             <td><input type="text" class="form-control" name="nama_panggilan" id="nama_panggilan" placeholder="Nama Panggilan" value="<?php echo $nama_panggilan; ?>" required/>
         </td>
         <tr><td>Tempat Lahir <?php echo form_error('tempat_lahir') ?></td>
             <td><input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" placeholder="Tempat Lahir" value="<?php echo $tempat_lahir; ?>" required/>
         </td>
+
         <tr><td>Tanggal Lahir <?php echo form_error('tanggal_lahir') ?></td>
-            <td><input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" placeholder="Tanggal Lahir" value="<?php echo $tanggal_lahir; ?>" required/>
+            <td><input  data-date-format="dd-mm-yyyy" type="text" class="form-control" name="tanggal_lahir" id="tanggal_lahir" placeholder="Tanggal Lahir" value="<?php echo $tanggal_lahir; ?>" required/>
+
+           
         </td>
+
+     <script type="text/javascript">
+            
+        $('#tanggal_lahir').datepicker({
+          format: 'dd-mm-yyyy'
+        });
+    </script>   
+        </div>
+         
+           
+
+        
         <!-- <tr><td>Umur <?php echo form_error('umur') ?></td>
             <td><input type="text" class="form-control" name="umur" id="umur" placeholder="Umur" value="<?php echo $umur; ?>" required/>
         </td> -->
@@ -37,33 +53,33 @@
         </td></tr>
 	    <tr><td>Golongan Darah <?php echo form_error('golongan_darah') ?></td>
             <td>
-            <div class="form-group">              
+            <div class="form-group"> 
                 <label class="radio-inline">
-                    <input type="radio" name="golongan_darah" id="golongan_darah" value="A" checked />A</label>
+                    <input type="radio" name="golongan_darah" id="golongan_darah" value="Belum tahu" checked />Belum tahu</label>             
+                <label class="radio-inline">
+                    <input type="radio" name="golongan_darah" id="golongan_darah" value="A" />A</label>
                 <label class="radio-inline">
                     <input type="radio" name="golongan_darah" id="golongan_darah" value="B" />B</label>
                 <label class="radio-inline">
                     <input type="radio" name="golongan_darah" id="golongan_darah" value="AB" />AB</label>
                 <label class="radio-inline">
-                    <input type="radio" name="golongan_darah" id="golongan_darah" value="O" />O</label>
-                <label class="radio-inline">
-                    <input type="radio" name="golongan_darah" id="golongan_darah" value="Belum tahu" />Belum tahu</label>
+                    <input type="radio" name="golongan_darah" id="golongan_darah" value="O" />O</label>                
             </div> 
         </td></tr>
 	    <tr><td>No Hp <?php echo form_error('no_hp') ?></td>
             <td><input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="No Hp" value="<?php echo $no_hp; ?>" required/>
         </td>
-	    <tr><td>Alamat <?php echo form_error('alamat') ?></td>
+	    <tr><td>Alamat Lengkap <?php echo form_error('alamat') ?></td>
             <td><textarea class="form-control" rows="3" name="alamat" id="alamat" placeholder="Alamat"><?php echo $alamat; ?></textarea>
         </td></tr>
         <tr><td>Provinsi <?php echo form_error('provinsi') ?></td>
             <td><input type="text" class="form-control" name="provinsi" id="provinsi" placeholder="Provinsi" value="<?php echo $provinsi; ?>" required/>
         </td>
         <tr><td>Kota/Kabupaten <?php echo form_error('kabupaten') ?></td>
-            <td><input type="text" class="form-control" name="kabupaten" id="kabupaten" placeholder="Kabupaten" value="<?php echo $kabupaten; ?>" required/>
+            <td><input type="text" class="form-control" name="kabupaten" id="kabupaten" placeholder="Kota/Kabupaten" value="<?php echo $kabupaten; ?>" required/>
         </td>
-        <tr><td>Kecamatan <?php echo form_error('kecamatan') ?></td>
-            <td><input type="text" class="form-control" name="kecamatan" id="kecamatan" placeholder="Kecamatan" value="<?php echo $kecamatan; ?>" required/>
+        <tr><td>Kecamatan/Kelurahan <?php echo form_error('kecamatan') ?></td>
+            <td><input type="text" class="form-control" name="kecamatan" id="kecamatan" placeholder="Kecamatan/Kelurahan" value="<?php echo $kecamatan; ?>" required/>
         </td>
         <tr><td>Nama Ayah <?php echo form_error('nama_ayah') ?></td>
             <td><input type="text" class="form-control" name="nama_ayah" id="nama_ayah" placeholder="Nama Ayah" value="<?php echo $nama_ayah; ?>" required/>

@@ -16,15 +16,15 @@
         </style>
     </head>
     <body>
-        <h2>Ujian List</h2>
+        <h2>Daftar Nilai MunaqosyahG</h2>
         <table class="word-table" style="margin-bottom: 10px">
             <tr>
                 <th>No</th>
-		<th>Id Siswa</th>
-		<th>Id Guru</th>
-		<th>Id Kelas</th>
-		<th>Id Materi</th>
-		<th>Id Uas</th>
+		<th>Nama Santri</th>
+		<th>Guru Penguji</th>
+		<th>Kelas</th>
+		<th>Materi Munaqosyah</th>
+		<th>Munaqosyah ke-</th>
 		<th>Nilai</th>
 		
             </tr><?php
@@ -33,11 +33,11 @@
                 ?>
                 <tr>
 		      <td><?php echo ++$start ?></td>
-		      <td><?php echo $ujian->id_siswa ?></td>
-		      <td><?php echo $ujian->id_guru ?></td>
-		      <td><?php echo $ujian->id_kelas ?></td>
-		      <td><?php echo $ujian->id_materi ?></td>
-		      <td><?php echo $ujian->id_uas ?></td>
+		      <td><?php echo $ujian->siswa ?></td>
+		      <td><?php echo $ujian->guru ?></td>
+		      <td><?php echo $ujian->kelas ?></td>
+		      <td><?php echo $ujian->materi ?></td>
+		      <td><?php echo $ujian->uas ?></td>
 		      <td><?php echo $ujian->nilai ?></td>	
                 </tr>
                 <?php

@@ -36,7 +36,7 @@
         </td>
 	    <input type="hidden" name="id" value="<?php echo $id; ?>" /> 
 	    <tr><td colspan='2'><button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
-	    <a href="<?php echo site_url('menu') ?>" class="btn btn-warning">Batal</a></td></tr>
+	    <a href="<?php echo site_url('menu') ?>" class="btn btn-danger">Batal</a></td></tr>
 	
     </table></form>
     </div><!-- /.box-body -->
