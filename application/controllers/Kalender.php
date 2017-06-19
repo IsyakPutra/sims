@@ -10,6 +10,15 @@ class Kalender extends CI_Controller{
   }
 
   public function index(){
+    // validasi login
+        if (!$this->session->userdata('level')){
+            redirect('login');
+        }else{
+          if ($this->session->userdata('level')!='admin') {
+            redirect ('validasi_level');
+            # code...
+          }
+        }
     if ($this->input->server('REQUEST_METHOD') == 'POST') {
       $data = [
         'judul_kegiatan'=>$this->input->post('judul'),

@@ -16,6 +16,15 @@ class Siswa extends CI_Controller
 
     public function index()
     {
+    	// validasi login
+        if (!$this->session->userdata('level')){
+            redirect('login');
+        }else{
+          if ($this->session->userdata('level')!='admin') {
+            redirect ('validasi_level');
+            # code...
+          }
+        }
         $siswa = $this->Siswa_model->get_all();
 
         $data = array(

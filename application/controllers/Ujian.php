@@ -17,6 +17,15 @@ class Ujian extends CI_Controller
 
     public function index()
     {
+        // validasi login
+        if (!$this->session->userdata('level')){
+            redirect('login');
+        }else{
+          if ($this->session->userdata('level')!='admin') {
+            redirect ('validasi_level');
+            # code...
+          }
+        }
         $ujian = $this->Ujian_model->get_all();
 
         $data = array(

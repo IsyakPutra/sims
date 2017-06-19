@@ -22,7 +22,7 @@ class Menu extends CI_Controller
             'menu_data' => $menu
         );
 
-        $this->template->load('template','menu_list', $data);
+        $this->template->load('v_admin','menu_list', $data);
     }
 
     public function read($id) 
@@ -30,14 +30,14 @@ class Menu extends CI_Controller
         $row = $this->Menu_model->get_by_id($id);
         if ($row) {
             $data = array(
-        'id' => $row->id,
-        'name' => $row->name,
-        'link' => $row->link,
-        'icon' => $row->icon,
-        'is_active' => $row->is_active,
-        'is_parent' => $row->is_parent,
-        );
-            $this->template->load('template','menu_read', $data);
+		'id' => $row->id,
+		'name' => $row->name,
+		'link' => $row->link,
+		'icon' => $row->icon,
+		'is_active' => $row->is_active,
+		'is_parent' => $row->is_parent,
+	    );
+            $this->template->load('v_admin','menu_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('menu'));
@@ -49,14 +49,14 @@ class Menu extends CI_Controller
         $data = array(
             'button' => 'Create',
             'action' => site_url('menu/create_action'),
-        'id' => set_value('id'),
-        'name' => set_value('name'),
-        'link' => set_value('link'),
-        'icon' => set_value('icon'),
-        'is_active' => set_value('is_active'),
-        'is_parent' => set_value('is_parent'),
-    );
-        $this->template->load('template','menu_form', $data);
+	    'id' => set_value('id'),
+	    'name' => set_value('name'),
+	    'link' => set_value('link'),
+	    'icon' => set_value('icon'),
+	    'is_active' => set_value('is_active'),
+	    'is_parent' => set_value('is_parent'),
+	);
+        $this->template->load('v_admin','menu_form', $data);
     }
     
     public function create_action() 
@@ -67,12 +67,12 @@ class Menu extends CI_Controller
             $this->create();
         } else {
             $data = array(
-        'name' => $this->input->post('name',TRUE),
-        'link' => $this->input->post('link',TRUE),
-        'icon' => $this->input->post('icon',TRUE),
-        'is_active' => $this->input->post('is_active',TRUE),
-        'is_parent' => $this->input->post('is_parent',TRUE),
-        );
+		'name' => $this->input->post('name',TRUE),
+		'link' => $this->input->post('link',TRUE),
+		'icon' => $this->input->post('icon',TRUE),
+		'is_active' => $this->input->post('is_active',TRUE),
+		'is_parent' => $this->input->post('is_parent',TRUE),
+	    );
 
             $this->Menu_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
@@ -86,16 +86,16 @@ class Menu extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Update',
+                'button' => 'Ubah',
                 'action' => site_url('menu/update_action'),
-        'id' => set_value('id', $row->id),
-        'name' => set_value('name', $row->name),
-        'link' => set_value('link', $row->link),
-        'icon' => set_value('icon', $row->icon),
-        'is_active' => set_value('is_active', $row->is_active),
-        'is_parent' => set_value('is_parent', $row->is_parent),
-        );
-            $this->template->load('template','menu_form', $data);
+		'id' => set_value('id', $row->id),
+		'name' => set_value('name', $row->name),
+		'link' => set_value('link', $row->link),
+		'icon' => set_value('icon', $row->icon),
+		'is_active' => set_value('is_active', $row->is_active),
+		'is_parent' => set_value('is_parent', $row->is_parent),
+	    );
+            $this->template->load('v_admin','menu_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('menu'));
@@ -110,12 +110,12 @@ class Menu extends CI_Controller
             $this->update($this->input->post('id', TRUE));
         } else {
             $data = array(
-        'name' => $this->input->post('name',TRUE),
-        'link' => $this->input->post('link',TRUE),
-        'icon' => $this->input->post('icon',TRUE),
-        'is_active' => $this->input->post('is_active',TRUE),
-        'is_parent' => $this->input->post('is_parent',TRUE),
-        );
+		'name' => $this->input->post('name',TRUE),
+		'link' => $this->input->post('link',TRUE),
+		'icon' => $this->input->post('icon',TRUE),
+		'is_active' => $this->input->post('is_active',TRUE),
+		'is_parent' => $this->input->post('is_parent',TRUE),
+	    );
 
             $this->Menu_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
@@ -139,14 +139,14 @@ class Menu extends CI_Controller
 
     public function _rules() 
     {
-    $this->form_validation->set_rules('name', 'name', 'trim|required');
-    $this->form_validation->set_rules('link', 'link', 'trim|required');
-    $this->form_validation->set_rules('icon', 'icon', 'trim|required');
-    $this->form_validation->set_rules('is_active', 'is active', 'trim|required');
-    $this->form_validation->set_rules('is_parent', 'is parent', 'trim|required');
+	$this->form_validation->set_rules('name', 'name', 'trim|required');
+	$this->form_validation->set_rules('link', 'link', 'trim|required');
+	$this->form_validation->set_rules('icon', 'icon', 'trim|required');
+	$this->form_validation->set_rules('is_active', 'is active', 'trim|required');
+	$this->form_validation->set_rules('is_parent', 'is parent', 'trim|required');
 
-    $this->form_validation->set_rules('id', 'id', 'trim');
-    $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+	$this->form_validation->set_rules('id', 'id', 'trim');
+	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
     public function excel()
@@ -171,24 +171,24 @@ class Menu extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
-    xlsWriteLabel($tablehead, $kolomhead++, "Name");
-    xlsWriteLabel($tablehead, $kolomhead++, "Link");
-    xlsWriteLabel($tablehead, $kolomhead++, "Icon");
-    xlsWriteLabel($tablehead, $kolomhead++, "Is Active");
-    xlsWriteLabel($tablehead, $kolomhead++, "Is Parent");
+	xlsWriteLabel($tablehead, $kolomhead++, "Name");
+	xlsWriteLabel($tablehead, $kolomhead++, "Link");
+	xlsWriteLabel($tablehead, $kolomhead++, "Icon");
+	xlsWriteLabel($tablehead, $kolomhead++, "Is Active");
+	xlsWriteLabel($tablehead, $kolomhead++, "Is Parent");
 
-    foreach ($this->Menu_model->get_all() as $data) {
+	foreach ($this->Menu_model->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
-        xlsWriteLabel($tablebody, $kolombody++, $data->name);
-        xlsWriteLabel($tablebody, $kolombody++, $data->link);
-        xlsWriteLabel($tablebody, $kolombody++, $data->icon);
-        xlsWriteNumber($tablebody, $kolombody++, $data->is_active);
-        xlsWriteNumber($tablebody, $kolombody++, $data->is_parent);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->name);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->link);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->icon);
+	    xlsWriteNumber($tablebody, $kolombody++, $data->is_active);
+	    xlsWriteNumber($tablebody, $kolombody++, $data->is_parent);
 
-        $tablebody++;
+	    $tablebody++;
             $nourut++;
         }
 
@@ -229,5 +229,5 @@ class Menu extends CI_Controller
 /* End of file Menu.php */
 /* Location: ./application/controllers/Menu.php */
 /* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2017-04-30 13:54:13 */
+/* Generated by Harviacode Codeigniter CRUD Generator 2016-01-01 09:22:19 */
 /* http://harviacode.com */

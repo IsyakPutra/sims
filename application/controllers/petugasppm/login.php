@@ -4,6 +4,22 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
+		// validasi login
+        if ($this->session->userdata('level')){
+          if ($this->session->userdata('level')=='petugas') {
+			redirect('petugasppm/petugas');
+          	# code...
+          }
+        }
+         // validasi login
+        if (!$this->session->userdata('level')){
+            redirect('login');
+        }else{
+          if ($this->session->userdata('level')!='petugas') {
+            redirect ('validasi_level');
+            # code...
+          }
+        }
 		$this->load->view('form_login');
 	}
 	
@@ -20,16 +36,17 @@ class Login extends CI_Controller {
 				if($level == 'admin'){
 					redirect('admin');				
 				}elseif ($level == 'kepala') {
-					redirect('kepala');
+					redirect('kepalappm/kepala');
 				}elseif ($level == 'petugas') {
-					redirect('petugas');
+					redirect('petugasppm/petugas');
 				}
 			}else{
-				$this->session->set_flashdata('result_login', '<br>Email atau Password yang anda masukkan salah.');
+				$this->session->set_flashdata('result_login');
+
                 echo "<script>
-alert('Username dan password salah');
-window.location.href='index';
-</script>";
+				alert('Silahkan masukkan Email dan Password dengan benar');
+				window.location.href='index';
+				</script>";
 			}
 		}
 		function logout(){

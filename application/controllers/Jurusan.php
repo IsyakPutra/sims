@@ -16,6 +16,15 @@ class Jurusan extends CI_Controller
 
     public function index()
     {
+        // validasi login
+        if (!$this->session->userdata('level')){
+            redirect('login');
+        }else{
+          if ($this->session->userdata('level')!='admin') {
+            redirect ('validasi_level');
+            # code...
+          }
+        }
         $jurusan = $this->Jurusan_model->get_all();
 
         $data = array(

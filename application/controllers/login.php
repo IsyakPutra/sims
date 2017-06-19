@@ -4,6 +4,19 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
+		// validasi login
+        if ($this->session->userdata('level')){
+          if ($this->session->userdata('level')=='admin') {
+            redirect ('admin');
+            # code...
+          }elseif ($this->session->userdata('level')=='kepala') {
+        	redirect('kepalappm/kepala');	
+          	# code...
+          }elseif ($this->session->userdata('level')=='petugas') {
+			redirect('petugasppm/petugas');
+          	# code...
+          }
+        }
 		$this->load->view('form_login');
 	}
 	

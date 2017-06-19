@@ -6,11 +6,15 @@ class Admin extends CI_Controller {
 	
 	public function index()
 	{
-		if(!$this->session->userdata('level')){
-			redirect('login');
-		}else{
-			$this->load->view('dashboard_admin');
-
-		}		
+		 // validasi login
+        if (!$this->session->userdata('level')){
+            redirect('login');
+        }else{
+          if ($this->session->userdata('level')!='admin') {
+            redirect ('validasi_level');
+            # code...
+          }
+        }		
+		$this->load->view('dashboard_admin');
 	}
 }

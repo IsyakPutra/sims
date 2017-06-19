@@ -9,9 +9,9 @@
         <!-- Bootstrap 3.3.5 -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>template/bootstrap/css/bootstrap.min.css">
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="<?php echo base_url() ?>template/font-awesome-4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>template/font-awesome-4.4.0/css/font-awesome.min.css">
         <!-- Ionicons -->
-        <link rel="stylesheet" href="<?php echo base_url() ?>template/ionicons-2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>template/ionicons-2.0.1/css/ionicons.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>template/dist/css/AdminLTE.min.css">
         <!-- iCheck -->
@@ -25,7 +25,7 @@
         <![endif]-->
     </head>
     <?php echo form_open('login/proseslogin')?>
-    <body class="hold-transition login-page" style="background-image: url('template/dist/img/ppm3.jpg'); background-repeat: no-repeat;">
+    <body class="hold-transition login-page" style="background-image: url('<?php echo base_url(); ?>template/dist/img/ppm3.jpg'); background-repeat: no-repeat;">
         <div class="login-box" style="background:#fff; opacity:0.9;">
         
             

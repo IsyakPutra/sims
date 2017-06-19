@@ -8,6 +8,15 @@ class Grafik extends CI_Controller {
   }
 
   public function index(){
+    // validasi login
+        if (!$this->session->userdata('level')){
+            redirect('login');
+        }else{
+          if ($this->session->userdata('level')!='admin') {
+            redirect ('validasi_level');
+            # code...
+          }
+        }
     $graph_data['axis']['categories'] = $this->gm->listUas();
     $rerata = [
       'name'=>'UAS',
