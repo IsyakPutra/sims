@@ -23,7 +23,7 @@
         </td>
 
         <tr><td>Tanggal Lahir <?php echo form_error('tanggal_lahir') ?></td>
-            <td><input  type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" placeholder="Tanggal Lahir" value="<?php echo $tanggal_lahir; ?>" required/>
+            <td><input type="text" data-date-format="dd MM yyyy" data-provide="datepicker" class="form-control datepicker" name="tanggal_lahir" id="tanggal_lahir" placeholder="Tanggal Lahir" value="<?php echo $tanggal_lahir; ?>" required/>
         </td>
         
         <!-- <input type="date" id="dt" onchange="mydate1();"/>

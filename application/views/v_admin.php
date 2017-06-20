@@ -32,7 +32,8 @@
         <!-- datepicker -->
 
         <link rel="stylesheet" href="<?= base_url('plugins/datetimepicker/bootstrap-datepicker.min.css')?>" media='screen'>
-
+        <link rel="stylesheet" href="<?= base_url('plugins/datepicker/datepicker3.css')?>" media='screen'>
+        
 
         <!-- jQuery 2.1.4 -->
         <script src="<?php echo base_url() ?>template/plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -46,8 +47,8 @@
             <script src="<?= base_url('plugins/fullcalendar/fullcalendar.min.js')?>"></script>
             <script src="<?= base_url('plugins/fullcalendar/locale/id.js')?>"></script>
             <script src="<?= base_url('plugins/datetimepicker/bootstrap-datetimepicker.min.js')?>"></script>
-            <script src="<?= base_url('plugins/datetimepicker/bootstrap-datetimepicker.id.js')?>"></script>
             <script src="<?= base_url('assets/js/custom.js')?>"></script>
+            <script src="<?= base_url('plugins/datetimepicker/bootstrap-datetimepicker.id.js')?>"></script>
             
         <!-- /assets uri kalender --><?php endif ?> 
         <?php if ($this->uri->segment(1) == 'grafik'): ?><!-- assets uri grafik -->
@@ -218,7 +219,10 @@
             });
         </script>
         <!-- datepicker -->
-        <script src="<?= base_url('plugins/datetimepicker/bootstrap-datepicker.min.js')?>"></script>
-        <script src="<?= base_url('plugins/datetimepicker/bootstrap-datepicker.id.min.js')?>"></script>
+        <script src="<?= base_url('plugins/datepicker/bootstrap-datepicker.js')?>"></script>
+        <script src="<?= base_url('plugins/datepicker/locales/bootstrap-datepicker.id.js')?>" charset="UTF-8"></script>
+
+        
+       
     </body>
 </html>

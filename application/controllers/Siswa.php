@@ -115,13 +115,15 @@ class Siswa extends CI_Controller
 
         if ($this->form_validation->run('create') == FALSE) {
             $this->create();
+
         } else {
             $data = array(
 			    // 'value' => $this->input->post('value',TRUE),
 				'siswa' => $this->input->post('siswa',TRUE),
 				'nama_panggilan' => $this->input->post('nama_panggilan',TRUE),
 				'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),
-				'tanggal_lahir' => $this->input->post('tanggal_lahir',TRUE),
+				'tanggal_lahir' => date("Y-m-d",$this->input->post('tanggal_lahir',TRUE)),
+     			// date('yy') echo date("Y-m-d",strtotime("22 May 2017")); 
 				// 'umur' => $this->input->post('umur',TRUE),
 				'jenis_kelamnin' => $this->input->post('jenis_kelamnin',TRUE),
 				'golongan_darah' => $this->input->post('golongan_darah',TRUE),
@@ -171,7 +173,8 @@ class Siswa extends CI_Controller
 				'siswa' => set_value('siswa', $row->siswa),
 				'nama_panggilan' => set_value('nama_panggilan', $row->nama_panggilan),
 				'tempat_lahir' => set_value('tempat_lahir', $row->tempat_lahir),
-				'tanggal_lahir' => set_value('tanggal_lahir', $row->tanggal_lahir),
+				'tanggal_lahir' => set_value('tanggal_lahir', date("d F Y",strtotime($row->tanggal_lahir))),
+				// 'tanggal_lahir' => set_value('tanggal_lahir', $row->tanggal_lahir),
 				// 'umur' => set_value('umur', $row->umur),
 				'jenis_kelamnin' => set_value('jenis_kelamnin', $row->jenis_kelamnin),
 				'golongan_darah' => set_value('golongan_darah', $row->golongan_darah),
@@ -214,7 +217,7 @@ class Siswa extends CI_Controller
 				'siswa' => $this->input->post('siswa',TRUE),
 				'nama_panggilan' => $this->input->post('nama_panggilan',TRUE),
 				'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),
-				'tanggal_lahir' => $this->input->post('tanggal_lahir',TRUE),
+				'tanggal_lahir' => date("Y-m-d",$this->input->post('tanggal_lahir',TRUE)),
 				// 'umur' => $this->input->post('umur',TRUE),
 				'jenis_kelamnin' => $this->input->post('jenis_kelamnin',TRUE),
 				'golongan_darah' => $this->input->post('golongan_darah',TRUE),

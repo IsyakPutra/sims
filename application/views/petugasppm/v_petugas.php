@@ -244,7 +244,8 @@
             });
         </script>
         <!-- datepicker -->
-        <script src="<?= base_url('plugins/datetimepicker/bootstrap-datepicker.min.js')?>"></script>
-        <script src="<?= base_url('plugins/datetimepicker/bootstrap-datepicker.id.min.js')?>"></script>
-    </body>
+        <script src="<?= base_url('plugins/datepicker/bootstrap-datepicker.js')?>"></script>
+        <script src="<?= base_url('plugins/datepicker/locales/bootstrap-datepicker.id.js')?>" charset="UTF-8"></script>
+
+        </body>
 </html>

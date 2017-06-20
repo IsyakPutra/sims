@@ -88,7 +88,7 @@ class Guru extends CI_Controller
 		'nama_panggilan' => $this->input->post('nama_panggilan',TRUE),
 		'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
 		'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),
-		'tanggal_lahir' => $this->input->post('tanggal_lahir',TRUE),
+        'tanggal_lahir' => date("Y-m-d",$this->input->post('tanggal_lahir',TRUE)),
 		'tempat_asal' => $this->input->post('tempat_asal',TRUE),
 		'id_kelas' => $this->input->post('id_kelas',TRUE),
 	    );
@@ -120,7 +120,7 @@ class Guru extends CI_Controller
 		'nama_panggilan' => set_value('nama_panggilan', $row->nama_panggilan),
 		'jenis_kelamin' => set_value('jenis_kelamin', $row->jenis_kelamin),
 		'tempat_lahir' => set_value('tempat_lahir', $row->tempat_lahir),
-		'tanggal_lahir' => set_value('tanggal_lahir', $row->tanggal_lahir),
+        'tanggal_lahir' => set_value('tanggal_lahir', date("d F Y",strtotime($row->tanggal_lahir))),
 		'tempat_asal' => set_value('tempat_asal', $row->tempat_asal),
 		'id_kelas' => set_value('id_kelas', $row->id_kelas),
 	    );
@@ -144,7 +144,7 @@ class Guru extends CI_Controller
 		'nama_panggilan' => $this->input->post('nama_panggilan',TRUE),
 		'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
 		'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),
-		'tanggal_lahir' => $this->input->post('tanggal_lahir',TRUE),
+        'tanggal_lahir' => date("Y-m-d",strtotime($this->input->post('tanggal_lahir',TRUE))),
 		'tempat_asal' => $this->input->post('tempat_asal',TRUE),
 		'id_kelas' => $this->input->post('id_kelas',TRUE),
 	    );
