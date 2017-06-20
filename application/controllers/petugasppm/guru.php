@@ -88,7 +88,7 @@ class Guru extends CI_Controller
 		'nama_panggilan' => $this->input->post('nama_panggilan',TRUE),
 		'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
 		'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),
-        'tanggal_lahir' => date("Y-m-d",$this->input->post('tanggal_lahir',TRUE)),
+        'tanggal_lahir' => date("Y-m-d",strtotime($this->input->post('tanggal_lahir',TRUE))),
 		'tempat_asal' => $this->input->post('tempat_asal',TRUE),
 		'id_kelas' => $this->input->post('id_kelas',TRUE),
 	    );

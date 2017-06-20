@@ -122,7 +122,7 @@ class Siswa extends CI_Controller
 				'siswa' => $this->input->post('siswa',TRUE),
 				'nama_panggilan' => $this->input->post('nama_panggilan',TRUE),
 				'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),
-				'tanggal_lahir' => date("Y-m-d",$this->input->post('tanggal_lahir',TRUE)),
+				'tanggal_lahir' => date("Y-m-d",strtotime($this->input->post('tanggal_lahir',TRUE))),
      			// date('yy') echo date("Y-m-d",strtotime("22 May 2017")); 
 				// 'umur' => $this->input->post('umur',TRUE),
 				'jenis_kelamnin' => $this->input->post('jenis_kelamnin',TRUE),
