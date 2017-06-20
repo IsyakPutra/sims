@@ -1,12 +1,14 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>VALIDASI ERROR!</title>
-	
+	<title>Bootstrap Part 6 : Membuat Pesan Alert Dengan Bootstrap</title>
+	<link rel="stylesheet" href="<?php echo base_url() ?>template/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>template/plugins/datatables/dataTables.bootstrap.css">	
 </head>
-<body>
-<h2>ERROR, User anda tidak cukup untuk masuk ke level ini</h2>
-	
+<body>		
+	<div class="container">
+		<center><h2><div class="alert alert-danger fade in">Dilarang Masuk!<br> Anda belum cukup umur.</div></h2></center>
+	</div>
+</div>
 </body>
 </html>
