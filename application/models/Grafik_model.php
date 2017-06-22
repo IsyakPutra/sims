@@ -19,7 +19,6 @@ class Grafik_model extends CI_Model {
       ->where('uas.id_uas',$uas)
       ->where('materi.id_materi',$materi)
       ->group_by('ujian.id_kelas')
-      ->order_by('ujian.id_kelas')
       ->get('ujian')
       ->result_array();
 
@@ -85,7 +84,6 @@ class Grafik_model extends CI_Model {
       ->join('siswa','ujian.id_siswa=siswa.id_siswa','left')
       ->join('uas','ujian.id_uas=uas.id_uas','left')
       ->group_by('uas.id_uas')
-      ->order_by('ujian.id_kelas')
       ->get('ujian')
       ->result_array();
 
