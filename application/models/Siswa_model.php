@@ -28,6 +28,26 @@ class Siswa_model extends CI_Model
         return $this->db->get($this->table)->result();
     }
 
+    public function getAktif(){
+        return $this->db->order_by($this->id,$this->order)
+            ->join('jurusan', 'siswa.id_jurusan=jurusan.id_jurusan')
+            ->join('fakultas', 'siswa.id_fakultas=fakultas.id_fakultas')
+            ->join('universitas', 'siswa.id_universitas=universitas.id_universitas')
+            ->join('kelas', 'siswa.id_kelas=kelas.id_kelas')
+            ->where('siswa.status','Aktif')
+            ->get($this->table)->result();
+    }
+
+    public function getNonAktif(){
+        return $this->db->order_by($this->id,$this->order)
+            ->join('jurusan', 'siswa.id_jurusan=jurusan.id_jurusan')
+            ->join('fakultas', 'siswa.id_fakultas=fakultas.id_fakultas')
+            ->join('universitas', 'siswa.id_universitas=universitas.id_universitas')
+            ->join('kelas', 'siswa.id_kelas=kelas.id_kelas')
+            ->where('siswa.status','Tidak Aktif')
+            ->get($this->table)->result();
+    }
+
 
     // get data by id
     function get_by_id($id)

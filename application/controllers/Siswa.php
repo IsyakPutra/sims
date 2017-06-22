@@ -25,6 +25,18 @@ class Siswa extends CI_Controller
         $this->template->load('v_admin','siswa_list', $data);
     }
 
+    public function aktif(){
+      $data['siswa_data'] = $this->Siswa_model->getAktif();
+
+      $this->template->load('v_admin','siswa_list',$data);
+    }
+
+    public function nonaktif(){
+      $data['siswa_data'] = $this->Siswa_model->getNonAktif();
+
+      $this->template->load('v_admin','siswa_list',$data);
+    }
+
     public function read($id) 
     {
         $row = $this->Siswa_model->get_by_id($id);
@@ -154,6 +166,7 @@ class Siswa extends CI_Controller
                 'action' => site_url('siswa/update_action'),
 		'id_siswa' => set_value('id_siswa', $row->id_siswa),
 		'siswa' => set_value('siswa', $row->siswa),
+    'status'=>set_value('siswa',$row->status),
 		'nama_panggilan' => set_value('nama_panggilan', $row->nama_panggilan),
 		'tempat_lahir' => set_value('tempat_lahir', $row->tempat_lahir),
 		'tanggal_lahir' => set_value('tanggal_lahir', $row->tanggal_lahir),
@@ -193,6 +206,7 @@ class Siswa extends CI_Controller
             $this->update($this->input->post('id_siswa', TRUE));
         } else {
             $data = array(
+    'status'=>$this->input->post('status',TRUE),
 		'siswa' => $this->input->post('siswa',TRUE),
 		'nama_panggilan' => $this->input->post('nama_panggilan',TRUE),
 		'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),

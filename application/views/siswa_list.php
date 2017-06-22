@@ -8,7 +8,13 @@
                   <h3 class='box-title'>DAFTAR SISWA&nbsp <?php echo anchor('siswa/create/','TAMBAH',array('class'=>'btn btn-warning btn-sm'));?>
 		<?php echo anchor(site_url('siswa/excel'), ' <i class="fa fa-file-excel-o"></i> Excel', 'class="btn btn-success btn-sm"'); ?>
 		<?php echo anchor(site_url('siswa/word'), '<i class="fa fa-file-word-o"></i> Word', 'class="btn btn-primary btn-sm"'); ?>
-		
+    </h3>
+                  <div class="box-tools">
+                    <div class="btn-group pull-right">
+                      <a href="<?= base_url('siswa/aktif') ?>" class="btn btn-success btn-sm">Aktif</a>
+                      <a href="<?= base_url('siswa/nonaktif') ?>" class="btn btn-danger btn-sm">Tidak Aktif</a>
+                    </div>
+                  </div>
                 </div><!-- /.box-header -->
 
                 <div class='box-body'>

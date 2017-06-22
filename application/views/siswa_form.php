@@ -1,3 +1,6 @@
+<?php
+if ($this->uri->segment(2) == 'create') $status = 'Aktif';
+?>
 <!-- Main content -->
         <section class='content'>
           <div class='row'>
@@ -8,6 +11,20 @@
                   <h3 class='box-title'>FORMULIR SISWA</h3>
                       <div class='box box-primary'>
         <form action="<?php echo $action; ?>" method="post"><table class='table table-bordered'>
+        <tr>
+            <td class="col-sm-3 control-label">
+                Status <?php echo form_error('status') ?></td>
+            <td>
+                <div class="form-group">
+                    <label class="radio-inline">
+                        <input type="radio" name="status" value="Aktif" <?php if ($status == 'Aktif'): ?>checked<?php endif ?>/>Aktif
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="status" value="Tidak Aktif" <?php if ($status == 'Tidak Aktif'): ?>checked<?php endif ?>/>Tidak Aktif
+                    </label>
+                </div> 
+            </td>
+        </tr>
         <tr><td class="col-sm-3 control-label">Nama Siswa <?php echo form_error('siswa') ?></td>
             <td><input type="text" class="form-control" name="siswa" id="siswa" placeholder="Nama Lengkap" value="<?php echo $siswa; ?>" required/>
         </td>
